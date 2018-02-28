@@ -1,5 +1,5 @@
 var bcrypt=require('bcrypt');
-var extra=require('./extra');
+var extra=require('./extra ') ;
 
 function adlog(req,res,con,pass){
   var sql="SELECT `Admin password` FROM `admin_tbl`";
