@@ -1,5 +1,5 @@
 var bcrypt=require('bcrypt');
-var extra=require('./extra');
+var extra=require('./extra ') ;
 
 function adlog(req,res,con,pass){
   var sql="SELECT `Admin password` FROM `admin_tbl`";
@@ -14,7 +14,7 @@ bcrypt.compare(p1,p2).then(function(result){
 	   req.session.admin="active";
 	   res.redirect(extra.urlbuild1('admin'));
 	 }else{
-       res.render('error-login',{
+       res.render('error-login', {
 		   text:"Admin password you enter didn't matched with the stored credential!!! Please try again!!!"
 	   }); 
 	 }
@@ -32,7 +32,7 @@ function enterstud(name,roll,res,con){
 	});
 }
 
-function hashin(name,roll,con,res){
+function hashin(name,roll,con,res) {
   var sql="INSERT INTO `student_tbl` (`Name`,`Username`,`Uid`,`Password`,`Book Table`,`Fine amount`,`Account Amount`) VALUES(?,?,?,?,?,?,?);\
            ALTER TABLE `student_tbl` DROP COLUMN `S.No.`;\
 		   ALTER TABLE `student_tbl` ADD `S.No.` INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY FIRST;\
