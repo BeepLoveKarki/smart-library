@@ -1,0 +1,40 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "MFRC522-node": "^1.0.5",
+    "bcrypt": "^1.0.3",
+    "build-url": "^1.0.10",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "express-mysql-session": "^1.2.3",
+    "express-session": "^1.15.6",
+    "express-toastr": "^2.0.2",
+    "google-translate-api": "^2.3.0",
+    "long-timeout": "^0.1.1",
+    "mongo": "^0.1.0",
+    "mysql": "^2.15.0",
+    "node-clusterfork": "^0.4.0",
+    "node-gcm": "^0.14.10",
+    "node-localstorage": "^1.3.0",
+    "node-notifier": "^5.2.1",
+    "node-rfid": "^1.0.6",
+    "node-run-cmd": "^1.0.1",
+    "node-schedule": "^1.3.0",
+    "nodemon": "^1.14.8",
+    "path": "^0.12.7",
+    "preeti": "^1.0.3",
+    "python-shell": "^0.4.0",
+    "socket.io": "^2.0.4",
+    "system-sleep": "^1.3.6"
+  }
+}
