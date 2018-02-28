@@ -14,7 +14,7 @@ bcrypt.compare(p1,p2).then(function(result){
 	   req.session.admin="active";
 	   res.redirect(extra.urlbuild1('admin'));
 	 }else{
-       res.render('error-login',{
+       res.render('error-login', {
 		   text:"Admin password you enter didn't matched with the stored credential!!! Please try again!!!"
 	   }); 
 	 }
