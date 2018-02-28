@@ -1,5 +1,5 @@
 var tag,rtag,wtag,rentag,bookis,f,g,m,danger;
-var gbook=new Array(),gwriter=new Array(),gpublication=new Array();
+var gbook=new Array(),gwriter=new Array(),gpublication=new Array() ;
 var notifier = require('node-notifier');
 var queryString=require('querystring');
 var bcrypt=require('bcrypt');
