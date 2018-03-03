@@ -3,6 +3,7 @@ import RPi.GPIO as gpio
 import sys
 rdr = RFID()
 
+
 if __name__=="__main__":
  gpio.setwarnings(False)
  b=sys.stdin.read()
