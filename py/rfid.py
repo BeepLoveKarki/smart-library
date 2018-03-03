@@ -1,4 +1,4 @@
-from rc522.pirc522 import RFID
+from pirc522 import RFID
 import RPi.GPIO as gpio
 import sys
 rdr = RFID()
