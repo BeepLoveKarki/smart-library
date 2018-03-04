@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Issue Book | Smart Library</title>
+   <meta charset="utf-8">
+   <meta name="description" content="Issue Book In The Autonomous Smart Library">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+   <meta name="x-ua-compatible" content="ie=edge">
+   <link rel="shortcut icon" href="/static/img/icon.png"/>
+   <link rel="stylesheet" href="/static/bs/css/bootstrap.min.css"/>
+   <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css"/>
+   <script src="/static/link/jquery-3.2.1.js"></script>
+   <link rel="stylesheet" href="/static/style/issue-style.css"/>
+   <script type="text/javascript" src="/static/js/issue.js"></script>
+   <script src="/static/js/reload.js"></script>
+</head>
+<body onload="checklogin()">
+
+<div class="modal fade" id="modal-book-issueway" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+   <div class="modal-dialog">
+     <div class="modal-content text-center">
+        <div class="modal-header book-issueway-h">
+	      <h1 class="modal-title">Where did you issue from???</h1>
+	    </div>
+		<div class="modal-footer book-issueway-f">
+		    <button type="button" class="btn btn-info btn-lg" id="bybot" onclick="issueway(1)" >From Shelf</button>
+		    <button type="button" class="btn btn-danger btn-lg" id="yourself" onclick="issueway(2)" >From Desk</button>
+		</div>
+     </div>
+   </div>
+ </div>
+
+ 
+ <div class="modal fade" id="modal-nobook" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+   <div class="modal-dialog">
+     <div class="modal-content">
+        <div class="modal-header nobook-h">
+	      <h3 class="modal-title text-center" id="nobook-heading">You have already issued 7 books which is a limit!!! Hence you cannot issue more before returning!!!</h3>
+	    </div>
+		<div class="modal-header nobook-f">
+		  <button type="button" class="btn btn-info" id="nobook-button" onclick="window.location.href='/'" >OK</button>
+	    </div>
+     </div>
+   </div>
+ </div>
+  
+  
+  <div class="modal" id="modal-book-rferror" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+   <div class="modal-dialog">
+     <div class="modal-content">
+        <div class="modal-header book-rferror-h">
+	      <h3 class="modal-title text-center" id="rferror-h">The book you tried to return didn't match with the one you selected!!! Try again carefully!!!</h3>
+	    </div>
+		<div class="modal-footer book-rferror-f">
+	      <button type="button" class="btn btn-info" id="rferror-f" onclick="window.location.href='/'">OK</button>
+	    </div>
+     </div>
+   </div>
+ </div>
+
+ 
+ 
+ <div class="modal fade" id="modal-book-issued" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+   <div class="modal-dialog">
+     <div class="modal-content text-center">
+        <div class="modal-header book-issued-h">
+	      <h3 class="modal-title" id="issued-h"></h3>
+	    </div>
+		<div class="modal-footer book-issued-f">
+		  <button type="button" class="btn btn-info" id="issued-f" onclick="restart()">OK</button>
+		</div>
+     </div>
+   </div>
+ </div>
+ 
+ 
+ <div class="modal" id="modal-book-issueself" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+   <div class="modal-dialog">
+     <div class="modal-content">
+        <div class="modal-header book-issueself-h">
+	      <h3 class="modal-title" id="issueself-h">Get The Book  And Issue It </h3>
+	    </div>
+		<div class="modal-header book-issueself-b">
+	      <p id="issueself-b" class="text-center"><b></b></p>
+	    </div>
+		<div class="modal-header book-issueself-f">
+	      <p id="issueself-f"><b>Enjoy your study!!!</b></p>
+	    </div>
+     </div>
+   </div>
+ </div>
+ 
+ <header id="heading">
+     <div class="container">
+	    <div class="row">
+	      <div class="col-sm-4 col-xs-4"><p id="name">Autonomous Smart Library</p></div>
+		  <div class="col-sm-4 col-xs-4"></div>
+	      <div class="col-sm-4 col-xs-4"><div id="user"><a href="" title="db" id="db">Transactions</a> | <p id="out">Sign Out</p></div></div>
+	    </div>
+	 </div>
+  </header>
+  <main>
+ </main>
+ </body>
+ <footer>
+ </footer>
+  <script src="/static/bs/tether/dist/js/tether.min.js"></script>
+  <script src="/static/bs/js/bootstrap.min.js"></script>
+</html>

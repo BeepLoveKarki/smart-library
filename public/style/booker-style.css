@@ -1,0 +1,194 @@
+body,html{
+  height:100%;
+  margin:0;
+}
+body{
+	background-size:cover;
+	background-position:center;
+	background-repeat:no-repeat;
+	max-height:100%;
+	background-attachment:fixed;
+	display:block;
+}
+#heading{
+  background-color:#8470FF;
+}
+#name{
+   color:#FFFFFF;
+   font-weight:700;
+   font-size:35px;
+   margin-top:10px; 
+}
+#name:hover{
+  cursor:pointer;
+}
+.add_it,.edit_it{
+  margin-top:30px;
+  background-color:#6495ED;
+  color:#FFFFFF;
+  display:none;
+}
+#addbutton,#editbutton{
+ cursor:pointer;
+}
+.head{
+ margin-bottom:20px;
+}
+
+#modal-nobook{
+    margin-top:120px;
+}
+#nobook-button{
+	margin:auto;
+	cursor:pointer;
+}
+.nobook-h{
+	background-color:#483D8B;
+	color:#FFFFFF;
+}
+.nobook-f{
+	background-color:#CD2626;
+    color:#FFFFFF;
+}
+#nobook-heading{
+  margin:auto;
+}
+
+#modal-book-return{
+	margin-top:150px;
+}
+.book-return-f{
+	background-color:#A020F0;
+}
+#bybot,#yourself{
+	cursor:pointer;
+	margin:auto;
+}
+.book-return-h{
+	color:#FFFFFF;
+	background-color:#B03060;
+	margin-bottom:-10px;
+}
+
+.list{
+	max-width:100%;
+    max-height:300px;
+	margin-left:0;
+	overflow-y:auto;
+}
+.books{
+	cursor:pointer;
+}
+#select{
+    cursor:pointer;
+}
+#publication,#bname,#writer{
+	max-width:100%;
+}
+.head-t{
+	background-color:#8A2BE2;
+	color:#FFFFFF;
+}
+#foot{
+   background-color:#483D8B;
+}
+.table{
+   border-collapse:collapse;
+}
+tbody tr:nth-child(even){
+    background-color:#DDD;
+}
+.the{
+    background-color:#68228B;
+	color:#FFFFFF;
+}
+.find{
+    margin-top:10px;
+	margin-bottom:10px;
+	width:100%;
+}
+.searchTerm{
+	width:95%;
+	border: 3px solid #00B4CC;
+	border-radius: 5px;
+	outline: none;
+    color: #9DBFAF;
+}
+.searchTerm:focus{
+    color: #00B4CC;
+}
+input[type="text"]{
+	font-size:15px;
+}
+.searchButton{
+	border: 1px solid #00B4CC;
+	background: #00B4CC;
+	border-radius: 5px;
+	color:#FFFFFF;
+	text-align: center;
+	cursor:pointer;
+	margin-left:-10px;
+	height:30px;
+}
+.close{
+  margin-bottom:100px;
+}
+
+.book-noselect-h{
+    background-color:#8A2BE2;
+	color:#FFFFFF;
+	margin-bottom:-10px;
+}
+.book-noselect-f{
+	background-color:#DC143C;
+	color:#FFFFFF;
+}
+#modal-book-noselect{
+	margin-top:150px;
+}
+#okno{
+	cursor:pointer;
+	margin:auto;
+}
+#tno{
+  margin:auto;
+}
+
+input[placeholder] { text-overflow: ellipsis; }
+
+@media (min-width:768px) and (max-device-width:1023px){
+  #modal{
+    margin-top:80px;
+  }
+}
+@media (min-device-width:1024px)and (max-device-width:1025){
+  #user{
+    margin-left:75px;
+  }
+  #modal{
+    margin-top:80px;
+  }
+}
+@media (min-width:414px) and (max-device-width:767px){
+  #modal{
+    margin-top:130px;
+  }
+  #searchTerm{
+    width:92%;
+  }
+}
+
+@media (min-width:375px) and (max-device-width:413px){
+  #modal{
+    margin-top:55px;
+  }
+  #searchTerm{
+    width:92%;
+  }
+}
+
+@media (min-width:360px) and (max-device-width:374px){
+  #searchTerm{
+    width:92%;
+  }
+}

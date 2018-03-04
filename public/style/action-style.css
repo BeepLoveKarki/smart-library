@@ -1,0 +1,298 @@
+body{
+	background-size:cover;
+	background-position:center;
+	background-repeat:no-repeat;
+	max-height:100%;
+	background-attachment:fixed;
+	display:block;
+}
+body,html{
+     height:100%;
+     margin:0;
+}
+#heading{
+  background-color:#00BFFF;
+}
+#user{
+	margin-left:160px;
+	white-space: nowrap;
+    font-weight:500;
+	font-size:20px;
+	margin-top:15px;
+	color:#FFFAF0;
+}
+
+#db{
+  color:#FFFAF0;
+}
+#db:hover{
+  cursor:pointer;
+  text-decoration: underline;
+}
+#out{
+  color:#FFFAF0;
+  display:inline-block;
+}
+#out:hover{
+  cursor:pointer;
+  text-decoration: underline;
+}
+#name{
+   color:#FFFFFF;
+   font-weight:700;
+   font-size:25px;
+   display:inline-block;
+   margin-top:10px;
+   margin-left:-40px;
+}
+#name:hover{
+  cursor:pointer;
+}
+
+#d{
+	margin-left:-100px;
+	max-width:450px;
+	max-height:350px;
+}
+#recommend{
+   background-color:#FF7F50;
+   height:340px;
+}
+#find{
+   background-color:#BF3EFF;
+}
+#serve{
+   background-color:#FF6EB4;
+}
+#issue{
+   background-color:#FF3030;
+}
+#return{
+  background-color:#FF8C00;
+}
+#feedback{
+  background-color:#00BFFF;
+}
+#recommend,#find,#serve,#issue,#feedback,#return{
+	margin-top:20px;
+	cursor:pointer;
+	transition: all .2s ease-in-out;
+}
+#recommend:hover,#find:hover,#serve:hover,#issue:hover,#return:hover,#feedback:hover{
+   transform: scale(1.1); 
+}
+#rtext,#fetext,#istext,#retext{
+  color:#FFFFFF;
+  font-size:25px;
+  font-weight:500;
+  margin-top:10px;
+  margin-left:-5px;
+}
+#ftext{
+  color:#FFFFFF;
+  font-size:25px;
+  font-weight:500;
+  margin-top:30px;
+}
+
+.bookdanger-h{
+	color:#FFFFFF;
+	background-color:#8A2BE2;
+}
+#ihead{
+	margin:auto;
+}
+.bookdanger-b{
+    background-color:#DC143C;
+	color:#FFFFFF;
+}
+#modal-bookdanger{
+   margin-top:150px;
+}
+#iamok{
+   margin:auto;
+   cursor:pointer;
+}
+
+.modal-feedback-h{
+	background-color:#8A2BE2;
+	color:#FFFFFF;
+}
+#close{
+	margin-bottom:40px;
+}
+#send-it{
+	cursor:pointer;
+	background-color:#483D8B;
+	color:#FFFFFF;
+	margin-top:5px;
+	text-align:center;
+}
+#send-it:hover{
+	background-color:#FF83FA;
+}
+.modal-feedback-f{
+	background-color:#EE2C2C;
+}
+#modal-feedback{
+    margin-top:100px;
+}
+.modal-feedback-b{
+	background-color:#CD2990;
+	color:#FFFFFF;
+}
+
+#add{
+	margin-top:18px;
+	margin-right:240px;
+}
+#add:hover{
+	text-decoration:underline;
+	cursor:pointer;
+}
+.modal-req-h{
+	background-color:#8A2BE2;
+	color:#FFFFFF;
+}
+#exit{
+   cursor:pointer;
+}
+.modal-req-f{
+	background-color:#DC143C;
+	color:#FFFFFF;
+}
+.modal-req-b{
+    height:180px;
+}
+#modal-req{
+	margin-top:30px;
+}
+#response{
+	margin-top:50px;
+	font-size:28px;
+}
+
+input{
+   width:100%;
+}
+#enterit{
+   margin:auto;
+}
+#modal-req-form{
+   position:fixed;
+   overflow:auto;
+}
+.modal-req-form-h{
+   background-color:#9932CC;
+   color:#FFFFFF;
+}
+.modal-req-form-f{
+   background-color:#9932CC;
+   color:#FFFFFF;
+}
+#subreq{
+   cursor:pointer;
+   margin-top:10px;
+}
+
+#modal-req-done{
+   margin-top:150px;
+}
+.modal-req-done-h{
+   background-color:#0000CD;
+   color:#FFFFFF;
+}
+.modal-req-done-f{
+   background-color:#DC143C;
+}
+#sentit,#good{
+   margin:auto;
+}
+#good{
+   cursor:pointer;
+}
+
+@media (min-width:768px) and (max-device-width:1023px){
+  #name{
+    margin-left:-30px;
+	white-space: nowrap;
+  }
+  #user{
+    margin-left:35px;
+  }
+  #issue{
+    height:360px;
+  }
+  #recommend{
+   height:375px;
+  }
+  #rtext{
+    margin-left:-34px;
+  }
+}
+@media (min-device-width:1024px)and (max-device-width:1025){
+  #user{
+    margin-left:75px;
+  }
+}
+@media (min-width:414px) and (max-device-width:767px){
+  #name{
+    margin-left:30px;
+	white-space:nowrap;
+  }
+  #user{
+    margin-left:75px;
+  }
+}
+
+@media (min-width:375px) and (max-device-width:413px){
+  #name{
+    margin-left:15px;
+	white-space: nowrap;
+  }
+  #user{
+    margin-left:60px;
+  }
+  #add{
+	 margin-right:90px;
+  }
+}
+
+@media (min-width:412px) and (max-device-width:414px){
+   #add{
+	 margin-right:125px;
+   }
+}
+
+@media (min-width:320px) and (max-device-width:359px){
+  #name{
+    margin-left:25px;
+	white-space: nowrap;
+  }
+  #user{
+    margin-left:68px;
+  }
+}
+
+@media (min-width:360px) and (max-device-width:374px){
+  #name{
+    margin-left:10px;
+	white-space: nowrap;
+  }
+  #user{
+    margin-left:56px;
+  }
+  #add{
+	 margin-right:80px;
+  }
+}
+
+@media (min-width:412px) and (max-device-width:413px){
+  #name{
+    margin-left:35px;
+	white-space: nowrap;
+  }
+  #user{
+    margin-left:80px;
+  }
+}

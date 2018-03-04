@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Dashboard | Smart Library</title>
+   <meta charset="utf-8">
+   <meta name="description" content="Choose Your Action In The Autonomous Smart Library">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+   <meta name="x-ua-compatible" content="ie=edge">
+   <link rel="shortcut icon" href="/static/img/icon.png"/>
+   <link rel="stylesheet" href="/static/bs/css/bootstrap.min.css"/>
+   <link rel="stylesheet" href="/static/style/action-style.css"/>
+   <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css"/>
+   <link rel="stylesheet" href="/static/link/toaster.min.css">
+   <script src="/static/link/jquery-3.2.1.js"></script>
+   <script src="/static/bs/tether/dist/js/tether.min.js"></script>
+  <script src="/static/bs/js/bootstrap.min.js"></script>
+   <script src="/static/link/toaster.min.js"></script>
+   <script src="/static/js/action.js"></script>
+   <script src="/static/js/reload.js"></script>  
+</head>
+<body onload="checklogin()">
+
+<div class="modal fade" id="modal-bookdanger" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+   <div class="modal-dialog">
+     <div class="modal-content text-center">
+        <div class="modal-header bookdanger-h">
+	      <h3 class="modal-title" id="ihead">Your Book Transactions are running out in time!!! Please renew or return books before time expires!!!</h3>
+	    </div>
+		<div class="modal-footer bookdanger-b">
+		    <button class="btn btn-info" type="button" id="iamok" data-dismiss="modal" onclick="regain()">OK</button>
+		</div>
+     </div>
+   </div>
+ </div>
+
+<div class="modal fade text-center" id="modal-req" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+   <div class="modal-dialog">
+     <div class="modal-content">
+        <div class="modal-header modal-req-h">
+	      <h3 class="modal-title text-center">Send Book Request and Receive its Response on Availability!!!</h3>
+	    </div>
+		<div class="modal-body modal-req-b text-center">
+	        <h5 id="response" class="text-center">No any book responses available!!!</h5>
+	    </div>
+		<div class="modal-footer modal-req-f">
+			<p id="add" onclick="sendreq()" class="text-left"><i class="fa fa-plus" aria-hidden="true"></i> <b>Add Book Request</b></p>
+			<button type="button" class="btn btn-info btn-md" id="exit" data-dismiss="modal" onclick="restore()"><b>Exit</b></button>
+		</div>
+     </div>
+   </div>
+ </div>
+ 
+
+<div class="modal fade" id="modal-req-form" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+   <div class="modal-dialog">
+     <div class="modal-content">
+        <div class="modal-header modal-req-form-h">
+	      <h3 class="modal-title" id="enterit">Enter Book Request Fields!!!</h3>
+		  <button type="button" class="close" id="close" onclick="window.location.href='/'">&times;</button>
+	    </div>
+		<div class="modal-body modal-req-form-b">
+	       <form class="form form-horizontal req_form" name="req_form" id="req_form" role="form">
+		        <fieldset class="form-group" id="name_field">
+				    <label for="reqbookname" id="reqbookname_label"><b>Book Name</b></label>
+					<input type="text" id="reqbookname" name="reqbookname"/>
+				</fieldset>
+				<fieldset class="form-group" id="auth_field">
+				    <label for="reqbookauthname" id="reqbookauthname_label"><b>Author/s' Name (Separate by "," if multiple authors to mention)</b></label>
+					<input type="text" id="reqbookauthname" name="reqbookauthname"/>
+				</fieldset>
+				<fieldset class="form-group" id="pub_field">
+				    <label for="reqbookpubname" id="reqbookpubname_label"><b>Publication Name</b></label>
+					<input type="text" id="reqbookpubname" name="reqbookpubname"/>
+				</fieldset>
+	    </div>
+		<div class="modal-footer modal-req-form-f">
+			   <fieldset class="form-group">
+				  <button type="button" class="btn btn-info btn-md" id="subreq" onclick="okdone()"><b>Submit</b></button>
+				</fieldset>
+			</form>
+		</div>
+     </div>
+   </div>
+ </div>
+ 
+ <div class="modal fade" id="modal-desk" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+   <div class="modal-dialog">
+     <div class="modal-content">
+        <div class="modal-header desk-h">
+	      <h3 class="modal-title text-center" id="desk-heading">The book/s are only found to be available on desk!!! So robot is unable to serve it for you!!!<br/> Try "Issue By Yourself" option!!!</h3>
+	    </div>
+		<div class="modal-header desk-f">
+		  <button type="button" class="btn btn-info" id="desk-button" onclick="restore()" >OK</button>
+	    </div>
+     </div>
+   </div>
+ </div>
+ 
+ <div class="modal fade" id="modal-req-done" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+   <div class="modal-dialog">
+     <div class="modal-content">
+        <div class="modal-header modal-req-done-h">
+	      <h3 class="modal-title" id="sentit">Your Book Request has been sent!!!</h3><br/>
+	    </div>
+		<div class="modal-footer modal-req-done-f">
+			<button type="button" class="btn btn-info btn-md" id="good" onclick="restore()">OK</button>
+		</div>
+     </div>
+   </div>
+ </div>
+
+  <div class="modal fade" id="modal-feedback" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+   <div class="modal-dialog">
+     <div class="modal-content">
+        <div class="modal-header modal-feedback-h">
+	      <h3 class="modal-title text-center">Your Feedback Really Matters Us For Improvement!!!</h3>
+		  <button type="button" class="close" id="close" data-dismiss="modal" onclick="restore()">&times;</button>
+	    </div>
+		<div class="modal-body modal-feedback-b">
+	      <form class="form form-horizontal text-center" method="POST" action="/feedback" name="feedback_in" id="feedback_in" role="form">
+		        <fieldset class="form-group" id="feedback_field">
+		          <label for="username" id="feedback_label"><h5>Your FeedBack</h5></label>
+		            <textarea rows="5" class="form-control" name="feedback" id="feedback_field" required  autofocus
+			        oninvalid="this.setCustomValidity('Please enter a feedback to send!!!')" oninput="this.setCustomValidity('')">
+					</textarea>
+		        </fieldset>
+	    </div>
+		<div class="modal-footer modal-feedback-f">
+		        <fieldset class="form-group" id="button_field">
+				   <button type="submit" class="btn btn-default btn-md" id="send-it">Send</button>
+		         </fieldset>
+		   </form>
+		</div>
+     </div>
+   </div>
+ </div>
+
+   <header id="heading">
+     <div class="container">
+	    <div class="row">
+	      <div class="col-sm-4 col-xs-4"><p id="name" onclick="javascript:window.location.reload(true)">Autonomous Smart Library</p></div>
+		  <div class="col-sm-4 col-xs-4">
+		  </div>
+	      <div class="col-sm-4 col-xs-4"><div id="user"><a href="/transaction" title="db" id="db">Transactions</a> | <p id="out" onclick="out()">Sign Out</p></div></div>
+	    </div>
+	 </div>
+  </header>
+  <main>
+    <div class="container">
+	  <div class="row">
+	    <div class="col-sm-4 col-xs-4">
+		  <div class="jumbotron" id="recommend" onclick="a('1')">
+		    <div class="text-center"><img src="/static/img/rimg.png"/></div>
+		    <p class="text-center" id="rtext">Book Requests & Responses</p>
+		  </div>
+		</div>
+	    <div class="col-sm-4 col-xs-4">
+		  <div class="jumbotron" id="serve" onclick="a('3')">
+		    <div class="text-center"><img src="/static/img/cimg.png" style="margin-top:2px;"/></div>
+		    <p class="text-center" id="ftext">Clear Fine Amount</p>
+		  </div>
+		</div>
+		<div class="col-sm-4 col-xs-4">
+		  <div class="jumbotron" id="find" onclick="a('2')">
+		    <div class="text-center"><img src="/static/img/fimg.png"/></div>
+		    <p class="text-center" id="ftext">Locate or Find Books</p>
+		  </div>
+		</div>
+	  </div>
+	
+	<div class="row">
+	    <div class="col-sm-4 col-xs-4">
+		  <div class="jumbotron" id="issue" onclick="a('4')">
+		    <div class="text-center"><img src="/static/img/isimg.png"/></div>
+		    <p class="text-center" id="istext">Issue Books</p>
+		  </div>
+		</div>
+		<div class="col-sm-4 col-xs-4">
+		  <div class="jumbotron" id="return" onclick="a('5')">
+		    <div class="text-center"><img src="/static/img/reimg.png"/></div>
+		    <p class="text-center" id="retext">Return or Renew Books</p>
+		  </div>
+		</div>
+	    <div class="col-sm-4 col-xs-4">
+		  <div class="jumbotron" id="feedback" onclick="a('6')">
+		    <div class="text-center"><img src="/static/img/feimg.png"/></div>
+		    <p class="text-center" id="fetext">Send Feedback</p>
+		  </div>
+		</div>
+	  </div>
+	
+	</div>
+  </main>
+  <footer>
+  </footer>
+</body>
+</html>

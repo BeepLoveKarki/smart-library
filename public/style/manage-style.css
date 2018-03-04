@@ -1,0 +1,140 @@
+body,html{
+  height:100%;
+  margin:0;
+}
+body{
+	background-size:cover;
+	background-position:center;
+	background-repeat:no-repeat;
+	max-height:100%;
+	background-attachment:fixed;
+	display:block;
+}
+#heading{
+  background-color:#8470FF;
+}
+#name{
+   color:#FFFFFF;
+   font-weight:700;
+   font-size:35px;
+   margin-top:10px; 
+}
+#name:hover{
+  cursor:pointer;
+}
+.list{
+	max-width:100%;
+    max-height:300px;
+	margin-left:0;
+	overflow-y:auto;
+}
+.books{
+	cursor:pointer;
+}
+
+#bname{
+  max-width:70px;
+}
+#shelf{
+  max-width:70px; 
+}
+#row{
+  max-width:70px;
+}
+#col{
+  max-width:70px;
+}
+#select{
+  cursor:pointer;
+}
+.head-t{
+	background-color:#DC143C;
+	color:#FFFFFF;
+}
+#foot{
+   background-color:#483D8B;
+}
+.table{
+   border-collapse:collapse;
+}
+tbody tr:nth-child(even){
+    background-color:#DDD;
+}
+.the{
+    background-color:#68228B;
+	color:#FFFFFF;
+}
+.find{
+    margin-top:10px;
+	margin-bottom:10px;
+	width:100%;
+}
+.searchTerm{
+	width:95%;
+	border: 3px solid #00B4CC;
+	border-radius: 5px;
+	outline: none;
+    color: #9DBFAF;
+}
+.searchTerm:focus{
+    color: #00B4CC;
+}
+input[type="text"]{
+	font-size:15px;
+}
+.searchButton{
+	border: 1px solid #00B4CC;
+	background: #00B4CC;
+	border-radius: 5px;
+	color:#FFFFFF;
+	text-align: center;
+	cursor:pointer;
+	margin-left:-10px;
+	height:30px;
+}
+.close{
+  margin-bottom:5px;
+}
+
+.nocol{
+ background-color:#fff;
+ color:#292b2c;
+}
+.col{
+ background-color:#0000CD;
+ color:#FFFFFF;
+}
+
+@media (min-width:768px) and (max-device-width:1023px){
+  #modal{
+    margin-top:80px;
+  }
+}
+@media (min-device-width:1024px)and (max-device-width:1025){
+  #modal{
+    margin-top:80px;
+  }
+}
+@media (min-width:414px) and (max-device-width:767px){
+  #modal{
+    margin-top:130px;
+  }
+  #searchTerm{
+    width:92%;
+  }
+}
+
+@media (min-width:375px) and (max-device-width:413px){
+  #modal{
+    margin-top:55px;
+  }
+  #searchTerm{
+    width:92%;
+  }
+}
+
+@media (min-width:360px) and (max-device-width:374px){
+  #searchTerm{
+    width:92%;
+  }
+}

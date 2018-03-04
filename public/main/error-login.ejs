@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Log In Error | Smart Library</title>
+   <meta charset="utf-8">
+   <meta name="description" content="Error in login to Autonomous Smart Library">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+   <meta name="x-ua-compatible" content="ie=edge">
+   <link rel="shortcut icon" href="/static/img/icon.png"/>
+   <link rel="stylesheet" href="/static/bs/css/bootstrap.min.css"/>
+   <link rel="stylesheet" href="/static/style/error-login-style.css"/>
+   <script src="/static/link/jquery-3.2.1.js"></script>
+   <script src="/static/js/error-login.js"></script>
+</head>
+<body>
+  <header id="heading">
+     <div class="container">
+	    <div class="row">
+	      <div class="col-sm-12 col-xs-12 text-center"><p id="name">Autonomous Smart Library</p></div>
+	    </div>
+	 </div>
+  </header>
+  <main>
+     <div class="modal fade" id="modal" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+     <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+	      <h1 class="modal-title"> Error Logging In</h1>
+	    </div>
+	    <div class="modal-body">
+	      <p id="msg"><%=text%></p>     
+		</div>
+		<div class="modal-footer">
+		   <%if (a=="1"){%>
+		    <a href="/uid" title="Retry"><button type="button" class="btn btn-danger" id="back">OK</button></a>
+		  <%}else{%>
+		    <a href="/" title="Retry"><button type="button" class="btn btn-danger" id="back">OK</button></a>
+		  <%}%>
+		</div>
+     </div>
+   </div>
+ </div>
+  </main>
+  <script src="/static/bs/tether/dist/js/tether.min.js"></script>
+  <script src="/static/bs/js/bootstrap.min.js"></script>
+</body>
+</html>

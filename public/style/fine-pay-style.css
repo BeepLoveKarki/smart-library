@@ -1,0 +1,167 @@
+body{
+	background-size:cover;
+	background-position:center;
+	background-repeat:no-repeat;
+	max-height:100%;
+	background-attachment:fixed;
+	display:block;
+}
+body,html{
+     height:100%;
+     margin:0;
+}
+#heading{
+  background-color:#00BFFF;
+}
+#user{
+	margin-left:160px;
+	white-space: nowrap;
+    font-weight:500;
+	font-size:20px;
+	margin-top:15px;
+	color:#FFFAF0;
+}
+
+#db{
+  color:#FFFAF0;
+}
+#db:hover{
+  cursor:pointer;
+  text-decoration: underline;
+}
+#out{
+  color:#FFFAF0;
+  display:inline-block;
+}
+#out:hover{
+  cursor:pointer;
+  text-decoration: underline;
+}
+#name{
+   color:#FFFFFF;
+   font-weight:700;
+   font-size:25px;
+   display:inline-block;
+   margin-top:10px;
+   margin-left:-40px;
+}
+#name:hover{
+  cursor:pointer;
+}
+
+#modal-nfine{
+    margin-top:170px;
+}
+#nfine-button{
+	margin:auto;
+	cursor:pointer;
+}
+.nfine-h{
+	background-color:#483D8B;
+	color:#FFFFFF;
+}
+.nfine-f{
+	background-color:#CD2626;
+    color:#FFFFFF;
+}
+#nfine-heading{
+  margin:auto;
+}
+
+#modal-fine{
+	margin-top:60px;
+}
+input{
+   text-align:center;
+   width:100%;
+}
+.fine-h{
+	background-color:#6495ED;
+	color:#FFFFFF;
+}
+.fine-f{
+   background-color:#6495ED;
+}
+#clearbutton{
+   color:#FFFFFF;
+   background-color:#27408B;
+   cursor:pointer;
+   margin:auto;
+}
+#clearbutton:hover{
+   background-color:#4B0082;
+}
+.fine-b{
+   background-color:#EE30A7;
+   color:#FFFFFF;
+}
+
+@media (min-width:768px) and (max-device-width:1023px){
+  #name{
+    margin-left:-30px;
+	white-space: nowrap;
+  }
+  #user{
+    margin-left:35px;
+  }
+}
+@media (min-device-width:1024px)and (max-device-width:1025){
+  #user{
+    margin-left:75px;
+  }
+}
+@media (min-width:414px) and (max-device-width:767px){
+  #name{
+    margin-left:30px;
+	white-space:nowrap;
+  }
+  #user{
+    margin-left:75px;
+  }
+}
+
+@media (min-width:375px) and (max-device-width:413px){
+  #name{
+    margin-left:15px;
+	white-space: nowrap;
+  }
+  #user{
+    margin-left:60px;
+  }
+}
+
+@media (min-width:412px) and (max-device-width:414px){
+   #add{
+	 margin-right:125px;
+   }
+}
+
+@media (min-width:320px) and (max-device-width:359px){
+  #name{
+    margin-left:25px;
+	white-space: nowrap;
+  }
+  #user{
+    margin-left:68px;
+  }
+}
+
+@media (min-width:360px) and (max-device-width:374px){
+  #name{
+    margin-left:10px;
+	white-space: nowrap;
+  }
+  #user{
+    margin-left:56px;
+  }
+}
+
+@media (min-width:412px) and (max-device-width:413px){
+  #name{
+    margin-left:35px;
+	white-space: nowrap;
+  }
+  #user{
+    margin-left:80px;
+  }
+}

@@ -1,0 +1,174 @@
+body,html{
+  height:100%;
+  margin:0;
+}
+#heading{
+  background-color:#00BFFF;
+}
+#user{
+	margin-left:160px;
+	white-space: nowrap;
+    font-weight:500;
+	font-size:20px;
+	margin-top:15px;
+	color:#FFFAF0;
+}
+
+#db{
+  color:#FFFAF0;
+}
+#db:hover{
+  cursor:pointer;
+  text-decoration: underline;
+}
+#out{
+  color:#FFFAF0;
+  display:inline-block;
+}
+#out:hover{
+  cursor:pointer;
+  text-decoration: underline;
+}
+#name{
+   color:#FFFFFF;
+   font-weight:700;
+   font-size:25px;
+   display:inline-block;
+   margin-top:10px;
+   margin-left:-40px;
+}
+#name:hover{
+  cursor:pointer;
+}
+
+#pay{
+ background-color:#00BFFF;
+ color:#FFFFFF;
+}
+
+#payf{
+ margin:auto;
+}
+
+#modal-trans{
+  margin-top:120px;
+}
+
+#payf:hover{
+ text-decoration:underline;
+ cursor:pointer;
+}
+.list{
+	max-width:100%;
+	margin-left:0;
+	overflow-y:auto;
+	overflow-x:fix;
+}
+.head-t{
+  background-color:#8A2BE2;
+  color:#FFFFFF;
+}
+#tt{
+  margin:auto;
+}
+#nn{
+  width:1000px;
+}
+#foot{
+  background-color:#FF8C00;
+  color:#FFFFFF;
+}
+.books{
+	cursor:pointer;
+}
+.table{
+   border-collapse:collapse;
+   overflow:scroll;
+}
+tbody tr{
+    background-color:#FFFFFFF;
+}
+.the{
+    background-color:#C71585;
+	color:#FFFFFF;
+}
+.headit{
+  background-color:#7B68EE;
+  color:#FFFFFF;
+  margin-bottom:2px;
+  max-height:70px;
+}
+
+#t{
+ background-color:#551A8B;
+ color:#FFFFFF;
+}
+#ft{
+ background-color:#FF4500;
+ color:#FFFFFF;
+}
+
+@media (min-width:768px) and (max-device-width:1023px){
+  #name{
+    margin-left:-30px;
+	white-space: nowrap;
+  }
+  #user{
+    margin-left:35px;
+  }
+}
+@media (min-device-width:1024px)and (max-device-width:1025){
+  #user{
+    margin-left:75px;
+  }
+}
+@media (min-width:414px) and (max-device-width:767px){
+  #name{
+    margin-left:30px;
+	white-space:nowrap;
+  }
+  #user{
+    margin-left:75px;
+  }
+}
+
+@media (min-width:375px) and (max-device-width:413px){
+  #name{
+    margin-left:15px;
+	white-space: nowrap;
+  }
+  #user{
+    margin-left:60px;
+  }
+}
+
+@media (min-width:320px) and (max-device-width:359px){
+  #name{
+    margin-left:25px;
+	white-space: nowrap;
+  }
+  #user{
+    margin-left:68px;
+  }
+}
+
+@media (min-width:360px) and (max-device-width:374px){
+  #name{
+    margin-left:10px;
+	white-space: nowrap;
+  }
+  #user{
+    margin-left:56px;
+  }
+}
+
+@media (min-width:412px) and (max-device-width:413px){
+  #name{
+    margin-left:35px;
+	white-space: nowrap;
+  }
+  #user{
+    margin-left:80px;
+  }
+}
+

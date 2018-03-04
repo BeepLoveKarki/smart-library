@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Admin Panel | Smart Library</title>
+   <meta charset="utf-8">
+   <meta name="description" content="Admin Panel Of The Autonomous Smart Library">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+   <meta name="x-ua-compatible" content="ie=edge">
+   <link rel="shortcut icon" href="/static/img/icon.png"/>
+   <link rel="stylesheet" href="/static/bs/css/bootstrap.min.css"/>
+   <link rel="stylesheet" href="/static/style/view-req-style.css"/>
+   <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css"/>
+   <script src="/static/link/jquery-3.2.1.js"></script>
+   <script src="/static/js/view-req.js"></script>
+   <script src="/static/js/reload.js"></script>  
+</head>
+<body onload="checklogin1()">
+<div class="modal fade" id="modal" role="dialog" aria-hidden="true" tabindex="-1" data-backdrop="static">
+     <div class="modal-dialog">
+       <div class="modal-content">
+	    <div class="modal-header head-t">
+	      <h2 class="modal-title text-center" id="bro">Book Requests</h2>
+		  <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="window.location.href='/'">
+            &times;
+          </button>
+	    </div>
+		 <div class="modal-body body-t">
+	     <div class="table-responsive list">
+		   <table class="table table-hover table-bordered id="table">
+		   <thead>
+			 <tr class="the">
+		      <th>Book</th>
+			  <th>Writer/s</th>
+			  <th>Publication</th>
+			  <th>By</th>
+			 </tr>
+		   </thead>
+		  	<tbody class="books" id="books">
+			   <%if(book.length!=0){%>
+			   <%for (var i=0;i<book.length;i++){%>
+			   <tr>
+				 <td id="bk">
+				   <%=book[i]%>
+				 </td>
+				 <td id="wr">
+				   <%if (writer[i]!=''){%>
+				    <%for(var j=0;j<writer[i].split(",").length;j++){%>
+					  <%=writer[i].split(",")[j]%><br/>
+					<%}%>
+				   <%}else{%>
+				    Not Specified
+				   <%}%>
+				 </td>
+				 <td id="pb">
+				   <%if (publication[i]!=''){%>
+				    <%=publication[i].spli%>
+				   <%}else{%>
+				    Not Specified
+				   <%}%>
+				 </td>
+				 <td id="st">
+				  <%=student[i]%>
+				 </td>
+			   </tr>
+			  <%}}else{%>
+	            <td colspan="4" style="background-color:#EE799F; color:#FFFFFF;"><h5 class="text-center">No Any Book Requests Found!!!</h5></td>
+			  <%}%>
+		   </tbody>
+		   </table>
+		   </div>
+		   </div>
+		</div>
+	</div>
+	</div>
+
+<header id="heading">
+     <div class="container">
+	    <div class="row">
+	      <div class="col-sm-12 col-xs-12"><p id="name" class="text-center" onclick="javascript:window.location.reload(true)">
+		     Autonomous Smart Library
+		  </p></div>
+	    </div>
+	 </div>
+</header>
+<main>
+</main>
+<footer id="footer">
+</footer>
+<script src="/static/bs/tether/dist/js/tether.min.js"></script>
+  <script src="/static/bs/js/bootstrap.min.js"></script>
+</body>
+</html>

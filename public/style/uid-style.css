@@ -1,0 +1,47 @@
+body,html{
+  height:100%;
+  margin:0;
+}
+body{
+	background-size:cover;
+	background-position:center;
+	background-repeat:no-repeat;
+	max-height:100%;
+	background-attachment:fixed;
+	display:block;
+}
+#heading{
+  background-color:#8470FF;
+}
+#name{
+   color:#FFFFFF;
+   font-weight:700;
+   font-size:35px;
+   margin-top:10px; 
+}
+#name:hover{
+  cursor:pointer;
+}
+
+#modal-admin,#modal-uid{
+	margin-top:140px;
+}
+#admin-heading,#uid-heading{
+  margin:auto;
+}
+.admin-h,.uid-h{
+   background-color:#EE799F;
+   color:#FFFFFF;
+}
+.admin-b,.uid-b{
+	background-color:#912CEE;
+	color:#FFFFFF;
+}
+#adlog,#uidlog{
+	margin:auto;
+	cursor:pointer;
+}
+.admin-f,.uid-f{
+  background-color:#0000CD;
+  color:#FFFFFF;
+}

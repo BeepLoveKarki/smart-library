@@ -1,0 +1,163 @@
+body,html{
+  height:100%;
+  margin:0;
+}
+body{
+	background-size:cover;
+	background-position:center;
+	background-repeat:no-repeat;
+	max-height:100%;
+	background-attachment:fixed;
+	display:block;
+}
+#heading{
+  background-color:#8470FF;
+}
+#name{
+   color:#FFFFFF;
+   font-weight:700;
+   font-size:35px;
+   margin-top:10px; 
+}
+
+#name:hover{
+  cursor:pointer;
+}
+.nohead{
+ margin-top:20px;
+}
+#c1,#c2,#c3,#c4,#c5,#c6{
+ margin-top:40px;
+ color:#FFFFFF;
+ height:120px;
+ cursor:pointer;
+}
+#c1{
+  background-color:#E066FF;
+}
+#c2{
+  background-color:#0000CD;
+}
+#c3{
+  background-color:#CD3700;
+}
+#c4{
+  background-color:#4682B4;
+}
+#c5{
+  background-color:#FF0000;
+}
+#c6{
+  background-color:#008B45;
+}
+#addbutton{
+ margin-right:10px;
+ border-radius:0px;
+}
+#deletebutton{
+  margin-right:10px;
+  border-radius:0px;
+}
+#editbutton{
+  border-radius:0px;
+}
+.card-title{
+  margin-top:20px;
+  transition: all .2s ease-in-out;  
+}
+.card-title:hover{
+  font-size:30px;
+  cursor:pointer;
+  transform: scale(0.5.0.5);
+}
+.btn{
+  cursor:pointer;
+}
+#footer{ 
+  background-color:#551A8B;
+  width:100%;
+  position:fixed;
+  display:block;
+  bottom:0;
+  left:0;
+  right:0;
+  margin:auto;
+}
+.out{
+	color:#FFFFFF;
+	margin-bottom:3px;
+    font-size:20px;
+}
+#footer:hover{
+  background-color:#FF8C00;
+  cursor:pointer;
+  margin-top:2px;
+}
+
+#editb-heading{
+    margin:auto;
+}
+#modal-editb{
+	margin-top:190px;
+}
+.editb-h{
+	background-color:#EE799F;
+	color:#FFFFFF;
+}
+.editb-b{
+	background-color:#912CEE;
+	color:#FFFFFF;
+}
+.editb-f{
+	background-color:#3A5FCD;
+}
+
+#modal-admin-change{
+	margin-top:120px;
+}
+.admin-change-h{
+   background-color:#EE799F;
+   color:#FFFFFF;
+}
+.admin-change-b{
+	background-color:#912CEE;
+	color:#FFFFFF;
+	margin:auto;
+}
+.ad_login{
+	margin-top:10px;
+}
+#adpassnew{
+  width:80%;
+  font-size:25px;
+  text-align:center;
+  margin-top:10px;
+}
+#adlog{
+	cursor:pointer;
+	color:#FFFFFF;
+	background-color:#8B5F65;
+	margin:auto;
+}
+#adlog:hover{
+	background-color:#FF00FF;
+	font-weight:700;
+}
+.admin-change-f{
+	background-color:#3A5FCD;
+}
+#admin-change-heading{
+  margin:auto;
+}
+
+@media(max-width:411px){
+	#addbutton{
+	 margin-right:0px;
+	}
+	#deletebutton{
+	 margin-right:0px;
+	}
+	.btn-group{
+	  margin-left:-6px;
+	}
+}

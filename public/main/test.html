@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Select Book | Smart Library</title>
+   <meta charset="utf-8">
+   <meta name="description" content="Choose Your Action In The Autonomous Smart Library">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+   <meta name="x-ua-compatible" content="ie=edge">
+   <link rel="shortcut icon" href=""/>
+   <link rel="stylesheet" href="/static/bs/css/bootstrap.min.css"/>
+   <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css"/>
+   <script src="/static/link/jquery-3.2.1.js"></script>
+   <script type="text/javascript">
+     $(window).on('load',function(){
+	    $('#modal-rfbg').modal('show');
+	 });
+   </script>
+   <style type="text/css">
+    .rfbg-h{
+	  color:#FFFFFF;
+	  background-color:#8A2BE2;
+	}
+	#ihead{
+	  margin:auto;
+	}
+	.rfbg-b{
+	  background-color:#DC143C;
+	  color:#FFFFFF;
+	}
+	#modal-rfbg{
+	 margin-top:150px;
+	}
+	#iamok{
+	 margin:auto;
+	 cursor:pointer;
+	}
+   </style>
+</head>
+<body>
+<div class="modal fade" id="modal-rfbg" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+   <div class="modal-dialog">
+     <div class="modal-content text-center">
+        <div class="modal-header rfbg-h">
+	      <h3 class="modal-title" id="ihead">The RFID reader seems to be busy!!! Try again after some seconds!!!</h3>
+	    </div>
+		<div class="modal-footer rfbg-b">
+		    <button class="btn btn-info" type="button" id="iamok">OK</button>
+		</div>
+     </div>
+   </div>
+ </div>
+
+ </body>
+  <script src="/static/bs/tether/dist/js/tether.min.js"></script>
+  <script src="/static/bs/js/bootstrap.min.js"></script>
+</html>

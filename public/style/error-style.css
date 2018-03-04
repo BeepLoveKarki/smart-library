@@ -1,0 +1,45 @@
+body{
+	background-size:cover;
+	background-position:center;
+	background-repeat:no-repeat;
+	max-height:100%;
+	background-attachment:fixed;
+	display:block;
+}
+
+#name{
+   color:#FFFFFF;
+   font-weight:700;
+   font-size:25px;
+   display:inline-block;
+   margin-top:10px;
+}
+#heading{
+  background-color:#00BFFF;
+}
+#back{
+  cursor:pointer;
+}
+body,html{
+     height:100%;
+     margin:0;
+}
+#modal{
+    margin-top:150px;
+}
+.modal-header{
+  background-color:#458B74;
+  color:#ffffff;
+}
+.modal-title{
+  margin:auto;
+}
+.modal-body{
+  margin:auto;
+  background-color:#FFE4C4;
+  text-align:justify;
+  font-size:25px;
+}
+.modal-footer{
+  background-color:#696969;
+}

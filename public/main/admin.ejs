@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Admin Panel | Smart Library</title>
+   <meta charset="utf-8">
+   <meta name="description" content="Admin Panel Of The Autonomous Smart Library">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+   <meta name="x-ua-compatible" content="ie=edge">
+   <link rel="shortcut icon" href="/static/img/icon.png"/>
+   <link rel="stylesheet" href="/static/bs/css/bootstrap.min.css"/>
+   <link rel="stylesheet" href="/static/style/admin-style.css"/>
+   <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css"/>
+   <script src="/static/link/jquery-3.2.1.js"></script>
+   <script src="/static/js/admin.js"></script>
+   <script src="/static/js/reload.js"></script>  
+</head>
+<body onload="checklogin1()">
+
+<div class="modal fade" id="modal-admin-change" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+   <div class="modal-dialog">
+     <div class="modal-content">
+        <div class="modal-header admin-change-h">
+	      <h3 class="modal-title text-center" id="admin-change-heading">You will need to login again as soon as change occurs!!!</h3>
+		  <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="window.location.href='/'">
+            &times;
+          </button>
+	    </div>
+		<div class="modal-body admin-change-b">
+	        <form class="form form-horizontal ad_login" name="ad_login" method="POST" action="/changeadlog" id="ad_login" role="form">
+		        <fieldset class="form-group text-center" id="adpass_field">
+				    <label for="adpass" id="adpass_label"><h3>Enter new admin panel password:</h3></label>
+					<input type="password" id="adpassnew" name="adpassnew"  required
+					oninvalid="setCustomValidity('Please enter new password for the admin-change panel!!!')" oninput="this.setCustomValidity('')"/>
+				</fieldset>
+	    </div>
+		<div class="modal-footer admin-change-f">
+				  <button type="submit" class="btn btn-default btn-md" id="adlog">Done</button>
+				</form>
+	    </div>
+     </div>
+   </div>
+ </div>
+
+<div class="modal fade" id="modal-editb" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+   <div class="modal-dialog">
+     <div class="modal-content">
+        <div class="modal-header editb-h">
+	      <h3 class="modal-title text-center" id="editb-heading">What would you like to do??</h3>
+		  <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="window.location.href='/'">
+            &times;
+          </button>
+	    </div>
+		<div class="modal-body editb-b text-center">
+		  <div class="btn-group">
+		   <button type="button" class="btn btn-info btn-md" id="addbutton" data-dismiss="modal" onclick="addjumb()">Add Entry</button>
+		   <button type="button" class="btn btn-warning btn-md" id="deletebutton" data-dismiss="modal" onclick="deljumb()">Delete Entry</button>
+		   <button type="button" class="btn btn-danger btn-md" id="editbutton" data-dismiss="modal" onclick="edjumb()">Edit Entry</button>
+          </div>
+	   </div>
+   </div>
+ </div>
+ </div>
+
+<header id="heading">
+     <div class="container">
+	    <div class="row">
+	      <div class="col-sm-12 col-xs-12"><p id="name" class="text-center" onclick="javascript:window.location.reload(true)">
+		     Autonomous Smart Library
+		  </p></div>
+	    </div>
+	 </div>
+</header>
+<div class="nohead">
+<main>
+  <div class="container">
+      <div class="row">
+	    <div class="col-sm-6 col-xs-6">
+		   <div class="card" id="c1">
+            <div class="card-block">
+              <h4 class="card-title text-center" onclick="doit('1')">Manage Desk Books</h4>
+            </div>
+         </div>
+		</div>
+		<div class="col-sm-6 col-xs-6">
+		 <div class="card" id="c2">
+            <div class="card-block">
+              <h4 class="card-title text-center" onclick="doit('2')"> Change Admin Password</h4>
+            </div>
+         </div>
+		</div>
+	  </div>
+	  <div class="row">
+	   <div class="col-sm-6 col-xs-6">
+		 <div class="card" id="c3">
+            <div class="card-block">
+              <h4 class="card-title text-center" onclick="doit('3')">Manage Students Entry </h4>
+            </div>
+         </div>
+		</div>
+		<div class="col-sm-6 col-xs-6">
+		 <div class="card" id="c4">
+            <div class="card-block">
+              <h4 class="card-title text-center" onclick="doit('4')">Manage Books Entry</h4>
+            </div>
+         </div>
+		</div>
+	  </div>
+	  <div class="row">
+	   <div class="col-sm-6 col-xs-6">
+		 <div class="card" id="c5">
+            <div class="card-block">
+              <h4 class="card-title text-center" onclick="doit('5')">View Book Requests</h4>
+            </div>
+         </div>
+		</div>
+		<div class="col-sm-6 col-xs-6">
+		 <div class="card" id="c6">
+            <div class="card-block">
+              <h4 class="card-title text-center" onclick="doit('6')">View Feedbacks</h4>
+            </div>
+         </div>
+		</div>
+	   </div>
+	  </div>
+</main>
+<footer id="footer">
+   <p class="out text-center" onclick="out()">Sign out</p>
+</footer>
+</div>
+<script src="/static/bs/tether/dist/js/tether.min.js"></script>
+<script src="/static/bs/js/bootstrap.min.js"></script>
+</body>
+</html>  

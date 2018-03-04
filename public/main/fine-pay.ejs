@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Pay Fine | Smart Library</title>
+   <meta charset="utf-8">
+   <meta name="description" content="Pay Fine In The Autonomous Smart Library">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+   <meta name="x-ua-compatible" content="ie=edge">
+   <link rel="shortcut icon" href="/static/img/icon.png"/>
+   <link rel="stylesheet" href="/static/bs/css/bootstrap.min.css"/>
+   <link rel="stylesheet" href="/static/style/fine-pay-style.css"/>
+   <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css"/>
+   <script src="/static/link/jquery-3.2.1.js"></script>
+   <script src="/static/js/fine-pay.js"></script>
+   <script src="/static/js/reload.js"></script>  
+</head>
+<body onload="checklogin()">
+
+<div class="modal fade" id="modal-nfine" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+   <div class="modal-dialog">
+     <div class="modal-content">
+        <div class="modal-header nfine-h">
+	      <h3 class="modal-title text-center" id="nfine-heading">No any fine has been issued to you!!!</h3>
+	    </div>
+		<div class="modal-header nfine-f">
+		  <button type="button" class="btn btn-info" id="nfine-button" onclick="window.location.href='/'" >OK</button>
+	    </div>
+     </div>
+   </div>
+ </div>
+
+ <div class="modal fade" id="modal-fine" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+   <div class="modal-dialog">
+     <div class="modal-content">
+        <div class="modal-header fine-h">
+	      <h3 class="modal-title text-center" id="fine-heading">Fine amount will be deducted from the amount you have previously deposited to library!!!</h3>
+	      <button type="button" class="close" data-dismiss="modal" onclick="window.location.href='/'">&times;</button>
+		</div>
+		<div class="modal-body fine-b">
+	       <form class="form form-horizontal text-center" role="form">
+		        <fieldset class="form-group">
+				    <label><b>Old Deposit Amount</b></label><br/>
+					<input type="number" id="amt" readonly value="<%=amt%>"/>
+				</fieldset>
+				<fieldset class="form-group">
+				    <label><b>Your Fine Amount</b></label><br/>
+					<input type="number" id="famt" readonly value="<%=fine%>"/>
+				</fieldset>
+				<fieldset class="form-group">
+				    <label><b>New Deposit Amount</b></label><br/>
+					<input type="number" readonly value="<%=parseInt(amt)-parseInt(fine)%>"/>
+				</fieldset>
+		   </form>
+	    </div>
+		<div class="modal-footer fine-f">
+			<button type="button" class="btn btn-default btn-md" id="clearbutton" onclick="clearfine()"><b>Clear Fine</b></button>
+	    </div>
+     </div>
+   </div>
+ </div>
+
+<header id="heading">
+     <div class="container">
+	    <div class="row">
+	      <div class="col-sm-4 col-xs-4"><p id="name" onclick="javascript:window.location.reload(true)">Autonomous Smart Library</p></div>
+		  <div class="col-sm-4 col-xs-4"></div>
+	      <div class="col-sm-4 col-xs-4"><div id="user"><a href="/transaction" title="db" id="db">Transactions</a> | <p id="out">Sign Out</p></div></div>
+	    </div>
+	 </div>
+  </header>
+  <main>
+  </main>
+  <footer>
+  </footer>
+  <script src="/static/bs/tether/dist/js/tether.min.js"></script>
+  <script src="/static/bs/js/bootstrap.min.js"></script>
+</body>
+</html>

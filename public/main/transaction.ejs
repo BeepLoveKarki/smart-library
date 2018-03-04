@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Transactions | Smart Library</title>
+   <meta charset="utf-8">
+   <meta name="description" content="See Your Transactions In The Autonomous Smart Library">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+   <meta name="x-ua-compatible" content="ie=edge">
+   <link rel="shortcut icon" href="/static/img/icon.png"/>
+   <link rel="stylesheet" href="/static/bs/css/bootstrap.min.css"/>
+   <link rel="stylesheet" href="/static/style/transaction-style.css"/>
+   <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css"/>
+   <script src="/static/link/jquery-3.2.1.js"></script>
+   <script src="/static/js/transaction.js"></script>
+   <script src="/static/js/reload.js"></script>
+</head>
+<body onload="checklogin()">
+<div class="modal fade" id="modal-trans" role="dialog" aria-hidden="true" tabindex="-1" data-backdrop="static">
+   <div class="modal-dialog">
+     <div class="modal-content">
+        <div class="modal-header head-t">
+	      <h2 class="modal-title text-center" id="tt">Transactions</h2>
+		  <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="window.location.href='/'">
+            &times;
+          </button>
+	    </div>
+	    <div class="modal-body body-t">
+		  <div class="table-responsive text-center list">
+		   <table class="table table-hover table-bordered id="table">
+		   <thead>
+			 <tr class="the">
+		      <th>Issued Book</th>
+			  <th>Issue Date</th>
+			  <th>Return Date</th>
+			  <th>Days Remaining</th>
+			  <th>Fine Amount</th>
+			 </tr>
+		   </thead>
+			<tfoot>
+			<tr>
+			  <td colspan="4" id="t"><h5>Total Amount Of Fine To Pay</h5></td>
+			  <td id="ft">
+			   <h5>
+			     <%if (famt.length!=0){%>
+				 <%=famt.reduce(function(a,b){return a+b;})%>
+			    <%}else{%>
+			      0
+				<%}%>
+			   </h5>
+			  </td>
+			</tr>
+		   </tfoot>
+			<tbody class="books" id="books">
+			   <%if(book.length!=0){%>
+			   <%for (var i=0;i<book.length;i++){%>
+			    <%var d=(returnd[i]-new Date())/(1000 * 3600 * 24)%>
+				<%if (d<0){%>
+			      <tr style="background-color:#CD2626; color:#FFFFFF">
+	            <%}else{%>
+				  <tr>
+				<%}%>
+				 <td id="b">
+				   <%=book[i]%>
+				 </td>
+				 <td id="id">
+				  <%=issued[i].toLocaleDateString("en-us")%>
+				 </td>
+				 <td id="rd">
+				  <%=returnd[i].toLocaleDateString("en-us")%>
+				 </td>
+				 <td  id="dy">
+				     <% if (d<0){%>
+				       <%=0%>
+					 <%}else{%>
+					  <%=Math.ceil(d)%>
+					 <%}%>
+				 </td>
+				 <td id="fm">
+				  <%=famt[i]%>
+				 </td>
+			   </tr>
+			  <%}}else{%>
+	            <td colspan="5" id="nn" style="background-color:#EE799F; color:#FFFFFF;"><h5>No Any Transactions Found!!!</h5></td>
+			  <%}%>
+		   </tbody>
+		   </table>
+		  </div>
+		</div>
+		<div class="modal-footer" id="foot">
+		    <h5 id="payf" onclick="window.location.href='/payfine'">Clear Fine</h5>
+		</div>
+     </div>
+   </div>
+ </div>
+
+<header id="heading">
+     <div class="container">
+	    <div class="row">
+	      <div class="col-sm-4 col-xs-4"><p id="name" onclick="javascript:window.location.reload(true)">Autonomous Smart Library</p></div>
+		  <div class="col-sm-4 col-xs-4"></div>
+	      <div class="col-sm-4 col-xs-4"><div id="user"><a href="/" title="db" id="db">Dashboard</a> | <p id="out" onclick="out()">Sign Out</p></div></div>
+	    </div>
+	 </div>
+  </header>
+ <main>
+ </main>
+ <footer>
+ </footer>
+  <script src="/static/bs/tether/dist/js/tether.min.js"></script>
+  <script src="/static/bs/js/bootstrap.min.js"></script>
+</body>
+

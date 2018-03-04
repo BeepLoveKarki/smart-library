@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Manage Student Records | Smart Library</title>
+   <meta charset="utf-8">
+   <meta name="description" content="Manage Student Record In The Autonomous Smart Library">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+   <meta name="x-ua-compatible" content="ie=edge">
+   <link rel="shortcut icon" href="/static/img/icon.png"/>
+   <link rel="stylesheet" href="/static/bs/css/bootstrap.min.css"/>
+   <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css"/>
+   <script src="/static/link/jquery-3.2.1.js"></script>
+   <script src="/static/bs/tether/dist/js/tether.min.js"></script>
+   <script src="/static/bs/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="/static/style/stud-style.css"/>
+   <script type="text/javascript" src="/static/js/stud.js"></script>
+   <script src="/static/js/reload.js"></script>
+</head>
+<body onload="checklogin1()">
+<div class="modal" id="modal-book-return" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+   <div class="modal-dialog">
+     <div class="modal-content text-center">
+        <div class="modal-header book-return-h">
+	      <h3 class="modal-title">The entered user already exists!!! Do you wish it to get updated???</h3>
+	    </div>
+		<div class="modal-footer book-return-f">
+		    <button type="button" class="btn btn-info btn-md" id="bybot" onclick="update()">OK</button>
+		    <button type="button" class="btn btn-danger btn-md" id="yourself" onclick="window.location.reload()" >Cancel</button>
+		</div>
+     </div>
+   </div>
+ </div>
+ 
+ <div class="modal fade" id="modal-desk" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+   <div class="modal-dialog">
+     <div class="modal-content">
+        <div class="modal-header desk-h">
+	      <h3 class="modal-title text-center" id="desk-heading">Please select an entry!!!</h3>
+	    </div>
+		<div class="modal-header desk-f">
+		  <button type="button" class="btn btn-info" id="desk-button" onclick="window.location.reload()" >OK</button>
+	    </div>
+     </div>
+   </div>
+ </div>
+ 
+ <div class="modal fade" id="modal-nobook" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+   <div class="modal-dialog">
+     <div class="modal-content">
+        <div class="modal-header nobook-h">
+	      <h3 class="modal-title text-center" id="nobook-heading"></h3>
+	    </div>
+		<div class="modal-header nobook-f">
+		  <button type="button" class="btn btn-info" id="nobook-button" onclick="window.location.href='/'" >OK</button>
+	    </div>
+     </div>
+   </div>
+ </div>
+ 
+ <div class="modal fade" id="modal-book-noselect" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+   <div class="modal-dialog">
+     <div class="modal-content text-center">
+        <div class="modal-header book-noselect-h">
+	      <h2 class="modal-title" id="tno">Please Select An Entry</h2>
+	    </div>
+		<div class="modal-footer book-noselect-f">
+		  <button type="button" class="btn btn-info" id="okno" onclick="showagain()">OK</button>
+		</div>
+     </div>
+   </div>
+ </div>
+
+   <div class="modal fade" id="modal" role="dialog" aria-hidden="true" tabindex="-1" data-backdrop="static">
+   <div class="modal-dialog">
+     <div class="modal-content">
+        <div class="modal-header head-t">
+	      <h2 class="modal-title text-center">Please select one among the following entries</h2>
+		  <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="window.location.href='/'">
+            &times;
+          </button>
+	    </div>
+	    <div class="modal-body body-t">
+		  <div class="find">
+		   <div class="search">
+		     <input type="text" class="searchTerm" id="searchTerm" placeholder="Filter Students By Keywords" onkeyup="shuffle()"/>
+			 <button class="searchButton" onclick="shuffle()">
+                      <i class="fa fa-search"></i>
+             </button>
+		   </div>
+		 </div>
+		  <div class="table-responsive list">
+		   <table class="table" id="table">
+		   <thead class="the">
+			 <tr>
+		      <th>Name</th>
+			  <th>Roll No.</th>
+			 </tr>
+		   </thead>
+			<tbody class="studs" id="studs">
+              <%if (name.length!=0){%>
+			  <%for(var i=0;i<name.length;i++){%>
+			   <tr id="data<%=i%>">
+	             <td id="sname"><%=name[i]%></td>
+				 <td id="sroll"><%=roll[i]%></td>
+			   </tr>
+	          <%}}else{%>
+	            <tr class="text-center"><td colspan="2"><b>No any entries found!!!</b></td></tr>
+			  <%}%>
+		   </tbody>
+		   </table>
+		  </div>
+		 </div>
+		<div class="modal-footer" id="foot">
+		    <button type="button" class="btn btn-info" id="select" onclick="fstud()"><b>Done</b></button>
+		</div>
+     </div>
+   </div>
+ </div>
+  
+  <header id="heading">
+     <div class="container">
+	    <div class="row">
+	      <div class="col-sm-12 col-xs-12"><p id="name" class="text-center" onclick="javascript:window.location.reload(true)">
+		     Autonomous Smart Library
+		  </p></div>
+	    </div>
+	 </div>
+</header>
+  <main>
+   <div class="container">
+     <div class="row">
+	   <div class="col-sm-2 col-xs-2"></div>
+	   <div class="col-sm-8 col-xs-8">
+	     <div class="jumbotron well add_it">
+		   <h1 class="text-center head">Please enter following credentials</h1>
+	       <form class="form form-horizontal" name="add_it_form" method="POST" id="add_it_form" role="form">
+		        <fieldset class="form-group" id="fname_field">
+		          <label for="fname" id="fname_label">Full Name:</label>
+		            <input type="text" class="form-control" name="fname" id="fname" required placeholder="Please enter student's full name with proper care"/>
+		        </fieldset>
+		        <fieldset class="form-group" id="roll_field">
+		          <label for="roll" id="roll_label">Roll No:</label>
+		            <input type="text" class="form-control" name="roll" id="roll" required placeholder="Please enter student's roll number with proper care"/>
+		        </fieldset>
+		        <fieldset class="form-group" id="button_field">
+				   <button type="button" class="btn btn-danger btn-md" id="addbutton" onclick="addit()">Done</button>
+		           <h5 class="text-center" id="fiel" style="display:none;">Either or both of the fields is empty!!!</h5>
+				 </fieldset>
+		   </form>
+	     </div>
+		 <div class="jumbotron well edit_it">
+		   <h1 class="text-center head">Please edit the following credentials</h1>
+	       <form class="form form-horizontal" name="edit_it_form" method="POST" id="edit_it_form" role="form">
+		        <fieldset class="form-group" id="f_edit_name_field">
+		          <label for="f_edit_name" id="f_edit_name_label">Name:</label>
+		            <input type="text" class="form-control" name="f_edit_name" id="f_edit_name" required/>
+		        </fieldset>
+		        <fieldset class="form-group" id="password_field">
+		          <label for="edit_roll" id="edit_roll_label">Roll No:</label>
+		            <input type="text" class="form-control" name="edit_roll" id="edit_roll" required/>
+		        </fieldset>
+		        <fieldset class="form-group" id="button_field">
+				   <button type="button" class="btn btn-danger btn-md" id="editbutton" onclick="editit()">Done</button>
+				 </fieldset>
+		   </form>
+	     </div>
+	   </div>
+	   <div class="col-sm-2 col-xs-2"></div>
+	 </div>
+   </div>
+ </main>
+ <footer id="footer">
+ </footer>
+</body>
+</html>

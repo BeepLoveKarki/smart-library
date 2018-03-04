@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Log In | Smart Library</title>
+   <meta charset="utf-8">
+   <meta name="description" content="Log In To The Most Sophisticated Autonomous Smart Library">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+   <meta name="x-ua-compatible" content="ie=edge">
+   <link rel="shortcut icon" href="/static/img/icon.png"/>
+   <link rel="stylesheet" href="/static/bs/css/bootstrap.min.css"/>
+   <link rel="stylesheet" href="/static/style/login-style.css"/>
+   <script src="/static/link/jquery-3.2.1.js"></script>
+   <script src="/static/js/login.js"></script>
+   <script src="/static/bs/tether/dist/js/tether.min.js"></script>
+  <script src="/static/bs/js/bootstrap.min.js"></script>
+</head>
+<body>
+  
+  <div class="modal fade" id="modal-admin" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+   <div class="modal-dialog">
+     <div class="modal-content">
+        <div class="modal-header admin-h">
+	      <h3 class="modal-title" id="admin-heading">Login To Admin Panel</h3>
+	    </div>
+		<div class="modal-body admin-b">
+	        <form class="form form-horizontal ad_login" name="ad_login" method="POST" action="/adlog" id="ad_login" role="form">
+		        <fieldset class="form-group text-center" id="adpass_field">
+				    <label for="adpass" id="adpass_label"><h3>Enter Admin Password:</h3></label>
+					<input type="password" id="adpass" name="adpass"  required
+					oninvalid="setCustomValidity('Please enter admin password to log in to the admin panel!!!')" oninput="this.setCustomValidity('')"/>
+				</fieldset>
+	    </div>
+		<div class="modal-footer admin-f">
+				  <button type="submit" class="btn btn-default btn-md" id="adlog">Login</button>
+				</form>
+	    </div>
+     </div>
+   </div>
+ </div>
+
+  
+  
+  <div class="wrapper1">
+  <div class="rowdivide" style="display:grid;grid-template-columns:repeat(1,1ftr);grid-gap:0px;margin:0px 15px 20px 15px;">
+    <div class="banner">
+         <span class="automaton">Autonomous Smart Library</span>
+    </div>
+    <div class="wraploginwrap">
+      <div class="loginwrapper fadeInDown">
+          <div class="formhead">
+               <img  class="fadeIn first "src="/static/img/book.jpeg" width="800" height="100" style="min-height:10vh;border-radius:15px;width:100%;height:auto;">
+            </div>
+             <div class="formbody">
+              <center>
+                <img class="icon" src="/static/img/icon.svg">
+                  <form method="POST" action="/log_in">
+                      <center>
+                        <input class="username fadeIn second" placeholder="Username" name="roll" type="text" required 
+			             oninvalid="this.setCustomValidity('Please enter your user name,i.e. your college roll number')" oninput="this.setCustomValidity('')">
+                        <input class="password faedIn third" placeholder="Password" name ="password" type="password"required 
+					      oninvalid="this.setCustomValidity('Please enter your password,i.e. your first name')" oninput="this.setCustomValidity('')">
+                        <input type="submit" class="fadeIn fourth" value="Log In">
+                      </center>
+                   </form>
+                   <div class="formFooter">
+                        <p class="forgetme" onclick="openmodal()">
+                            Login To Admin Panel
+                        </p>
+                   </div>
+                </div>
+		   </div>
+		</div>
+    </div>
+	</div>
+    </body>
+</html>

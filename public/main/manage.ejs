@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Manage Books | Smart Library</title>
+   <meta charset="utf-8">
+   <meta name="description" content="Manage Books Of The Autonomous Smart Library">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+   <meta name="x-ua-compatible" content="ie=edge">
+   <link rel="shortcut icon" href="/static/img/icon.png"/>
+   <link rel="stylesheet" href="/static/bs/css/bootstrap.min.css"/>
+   <link rel="stylesheet" href="/static/style/manage-style.css"/>
+   <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css"/>
+   <script src="/static/link/jquery-3.2.1.js"></script>
+   <script type="text/javascript" src="/static/js/manage.js"></script>
+   <script src="/static/js/reload.js"></script>  
+</head>
+<body onload="checklogin1()">
+<header id="heading">
+     <div class="container">
+	    <div class="row">
+	      <div class="col-sm-12 col-xs-12"><p id="name" class="text-center" onclick="javascript:window.location.reload(true)">
+		     Autonomous Smart Library
+		  </p></div>
+	    </div>
+	 </div>
+</header>
+<main>
+<div class="modal fade" id="modal" role="dialog" aria-hidden="true" tabindex="-1" data-backdrop="static">
+   <div class="modal-dialog">
+     <div class="modal-content">
+        <div class="modal-header head-t">
+	      <h3 class="modal-title text-center">Press managed book/s and click button below!!</h3>
+		  <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="window.location.href='/'">
+            &times;
+          </button>
+	    </div>
+	    <div class="modal-body body-t">
+		  <div class="find">
+		   <div class="search">
+		     <input type="text" class="searchTerm" id="searchTerm" placeholder="Filter Books By Keywords" onkeyup="shuffle()"/>
+			 <button class="searchButton" onclick="shuffle()">
+                      <i class="fa fa-search"></i>
+             </button>
+		   </div>
+		 </div>
+		  <div class="table-responsive list">
+		   <table class="table" id="table">
+		   <thead class="the">
+			 <tr>
+		      <th>Name</th>
+			  <th>Shelf No.</th>
+			  <th>Row No.</th>
+			  <th>Column No.</th>
+			 </tr>
+		   </thead>
+			<tbody class="books" id="books">
+              <%if (book.length!=0){%>
+			  <%for(var i=0;i<book.length;i++){%>
+			   <tr id="data<%=i%>">
+	             <td id="bname"><%=book[i]%></td>
+				  <td id="shelf"><%=shelf[i]%></td>
+				  <td id="row"><%=row[i]%></td>
+				  <td id="col"><%=col[i]%></td>
+			   </tr>
+	          <%}}else{%>
+	            <tr><td colspan="4" class="text-center"><b>No any books found for managing!!!</b></td></tr>
+			  <%}%>
+		   </tbody>
+		   </table>
+		  </div>
+		 </div>
+		<div class="modal-footer" id="foot">
+		    <button type="button" class="btn btn-info" id="select" onclick="fbook()"><b>Managed</b></button>
+		</div>
+     </div>
+   </div>
+ </div>
+</main>
+<footer>
+</footer>
+<script src="/static/bs/tether/dist/js/tether.min.js"></script>
+<script src="/static/bs/js/bootstrap.min.js"></script>
+</body>
+</html>

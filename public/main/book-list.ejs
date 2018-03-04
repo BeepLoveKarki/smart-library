@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Select Book | Smart Library</title>
+   <meta charset="utf-8">
+   <meta name="description" content="Choose Your Action In The Autonomous Smart Library">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+   <meta name="x-ua-compatible" content="ie=edge">
+   <link rel="shortcut icon" href="/static/img/icon.png"/>
+   <link rel="stylesheet" href="/static/bs/css/bootstrap.min.css"/>
+   <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css"/>
+   <script src="/static/link/jquery-3.2.1.js"></script>
+   <link rel="stylesheet" href="/static/style/book-list-style.css"/>
+   <script type="text/javascript" src="static/js/book-list.js"></script>
+   <script src="/static/js/reload.js"></script>
+</head>
+<body onload="checklogin()">
+
+<div class="modal" id="modal-book-rferror" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+   <div class="modal-dialog">
+     <div class="modal-content">
+        <div class="modal-header book-rferror-h">
+	      <h3 class="modal-title text-center" id="rferror-h">The book you tried to return didn't match with the one you selected!!! Try again carefully!!!</h3>
+	    </div>
+		<div class="modal-footer book-rferror-f">
+	      <button type="button" class="btn btn-info" id="rferror-f" onclick="window.location.href='/'">OK</button>
+	    </div>
+     </div>
+   </div>
+ </div>
+ 
+ <div class="modal fade" id="modal-nobook" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+   <div class="modal-dialog">
+     <div class="modal-content">
+        <div class="modal-header nobook-h">
+	      <h3 class="modal-title text-center" id="nobook-heading">You have already issued 7 books which is a limit!!! Hence you cannot issue more before returning!!!</h3>
+	    </div>
+		<div class="modal-header nobook-f">
+		  <button type="button" class="btn btn-info" id="nobook-button" onclick="window.location.href='/'" >OK</button>
+	    </div>
+     </div>
+   </div>
+ </div>
+
+ <div class="modal" id="modal-book-issueway" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+   <div class="modal-dialog">
+     <div class="modal-content text-center">
+        <div class="modal-header book-issueway-h">
+	      <h1 class="modal-title">Where did you issue from???</h1>
+	    </div>
+		<div class="modal-footer book-issueway-f">
+		    <button type="button" class="btn btn-info btn-lg" id="bybot" onclick="issueway(1)" >From Shelf</button>
+		    <button type="button" class="btn btn-danger btn-lg" id="yourself" onclick="issueway(2)" >From Desk</button>
+		</div>
+     </div>
+   </div>
+ </div>
+
+ <div class="modal" id="modal-already" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+   <div class="modal-dialog">
+     <div class="modal-content text-center">
+        <div class="modal-header already-h">
+	      <h3 class="modal-title" id="ihead">Issue Now</h3>
+	    </div>
+		<div class="modal-footer already-b">
+		    <p><b>Please show and your selected book rfid tag to the rfid reader and wait for the response</b></p>
+		</div>
+     </div>
+   </div>
+ </div>
+
+<div class="modal fade" id="modal-book-loc" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+   <div class="modal-dialog">
+     <div class="modal-content text-center">
+        <div class="modal-header book-loc-h">
+	      <h1 class="modal-title">The Book Location Info is as Below!!!</h1>
+	    </div>
+	    <div class="modal-body text-center book-loc-b">
+	         <p id="main-text"><b></b></p>
+             <div><img src="/static/img/b7.png" id="led"/></div>
+		</div>
+		<div class="modal-footer book-loc-f">
+		   <p onclick="makebg()" id="iss">Wanna Issue It???</p>
+		   <button type="button" class="btn btn-default" id="thank" onclick="window.location.href='/'">Ok, Thanks</button>
+		</div>
+     </div>
+   </div>
+ </div>
+ 
+ <div class="modal fade" id="modal-book-noselect" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+   <div class="modal-dialog">
+     <div class="modal-content text-center">
+        <div class="modal-header book-noselect-h">
+	      <h2 class="modal-title" id="tno"></h2>
+	    </div>
+		<div class="modal-footer book-noselect-f">
+		  <button type="button" class="btn btn-info" id="okno" onclick="showagain()">OK</button>
+		</div>
+     </div>
+   </div>
+ </div>
+ 
+ <div class="modal fade" id="modal-rfbg" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+   <div class="modal-dialog">
+     <div class="modal-content text-center">
+        <div class="modal-header rfbg-h">
+	      <h3 class="modal-title" id="ihead">The RFID reader seems to be busy!!! Try again after some seconds!!!</h3>
+	    </div>
+		<div class="modal-footer rfbg-b">
+		    <button class="btn btn-info" type="button" id="iamok" onclick="window.location.href='/'">OK</button>
+		</div>
+     </div>
+   </div>
+ </div>
+ 
+ 
+ <div class="modal fade" id="modal" role="dialog" aria-hidden="true" tabindex="-1" data-backdrop="static">
+   <div class="modal-dialog">
+     <div class="modal-content">
+        <div class="modal-header head-t">
+	      <h2 class="modal-title text-center">Please select one among the following available books</h2>
+		  <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="window.location.href='/'">
+            &times;
+          </button>
+	    </div>
+	    <div class="modal-body body-t">
+		  <div class="find">
+		   <div class="search">
+		     <input type="text" class="searchTerm" id="searchTerm" placeholder="Filter Books By Keywords" onkeyup="shuffle()"/>
+			 <button class="searchButton" onclick="shuffle()">
+                      <i class="fa fa-search"></i>
+             </button>
+		   </div>
+		 </div>
+		  <div class="table-responsive list">
+		   <table class="table" id="table">
+		   <thead class="the">
+			 <tr>
+		      <th>Name</th>
+			  <th>Writer/s</th>
+			  <th>Publication</th>
+			 </tr>
+		   </thead>
+			<tbody class="books" id="books">
+              <%if (name.length!=0){%>
+			  <%for(var i=0;i<name.length;i++){%>
+			   <tr id="data<%=i%>">
+	             <td id="bname"><%=name[i]%></td>
+				 <td id="writer">
+				 <%var d=writer[i].split(',').length%>
+				 <%for(var j=0; j<d; j++){ %>
+				    <%=writer[i].split(',')[j]%><br/>
+				 <%}%></td>
+				 <td id="publication"><%=publication[i]%></td>
+				 <%}%>
+			   </tr>
+			   </tbody>
+		      </table>
+		      </div>
+		     </div>
+		     <div class="modal-footer" id="foot">
+		       <p id="issueme" onclick="preselect()">Already selected book???</p>
+		       <button type="button" class="btn btn-info" id="select" onclick="fbook()"><b>Done</b></button>
+		    </div>
+	         <%}else{%>
+	            <tr><td colspan="3" class="text-center"><b>No any books found!!!</b></td></tr>
+		   </tbody>
+		   </table>
+		  </div>
+		 </div>
+		<div class="modal-footer" id="foot">
+		    <p id="issueme">Already selected book???</p>
+		    <button type="button" class="btn btn-info" id="select" onclick="fbook()" disabled><b>Done</b></button>
+		</div>
+		<%}%>
+     </div>
+   </div>
+ </div>
+ <header id="heading">
+     <div class="container">
+	    <div class="row">
+	      <div class="col-sm-4 col-xs-4"><p id="name">Autonomous Smart Library</p></div>
+		  <div class="col-sm-4 col-xs-4"></div>
+	      <div class="col-sm-4 col-xs-4"><div id="user"><a href="" title="db" id="db">Transactions</a> | <p id="out">Sign Out</p></div></div>
+	    </div>
+	 </div>
+  </header>
+  <main>
+ </main>
+ </body>
+ <footer>
+ </footer>
+  <script src="/static/bs/tether/dist/js/tether.min.js"></script>
+  <script src="/static/bs/js/bootstrap.min.js"></script>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Manage Book Record | Smart Library</title>
+   <meta charset="utf-8">
+   <meta name="description" content="Manage Book Records In The Autonomous Smart Library">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+   <meta name="x-ua-compatible" content="ie=edge">
+   <link rel="shortcut icon" href="/static/img/icon.png"/>
+   <link rel="stylesheet" href="/static/bs/css/bootstrap.min.css"/>
+   <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css"/>
+   <script src="/static/link/jquery-3.2.1.js"></script>
+   <link rel="stylesheet" href="/static/style/booker-style.css"/>
+   <script type="text/javascript" src="/static/js/booker.js"></script>
+   <script src="/static/js/reload.js"></script>
+</head>
+<body onload="checklogin1()">
+
+<div class="modal fade" id="modal-book-noselect" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+   <div class="modal-dialog">
+     <div class="modal-content text-center">
+        <div class="modal-header book-noselect-h">
+	      <h2 class="modal-title text-center" id="tno">Please Select An Entry</h2>
+	    </div>
+		<div class="modal-footer book-noselect-f">
+		  <button type="button" class="btn btn-info" id="okno" onclick="window.location.reload()">OK</button>
+		</div>
+     </div>
+   </div>
+ </div> 
+ 
+ <div class="modal fade" id="modal" role="dialog" aria-hidden="true" tabindex="-1" data-backdrop="static">
+   <div class="modal-dialog">
+     <div class="modal-content">
+        <div class="modal-header head-t">
+	      <h2 class="modal-title text-center">Please select one among the following available books</h2>
+		  <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="window.location.href='/'">
+            &times;
+          </button>
+	    </div>
+	    <div class="modal-body body-t">
+		  <div class="find">
+		   <div class="search">
+		     <input type="text" class="searchTerm" id="searchTerm" placeholder="Filter Books By Keywords" onkeyup="shuffle()"/>
+			 <button class="searchButton" onclick="shuffle()">
+                      <i class="fa fa-search"></i>
+             </button>
+		   </div>
+		 </div>
+		  <div class="table-responsive list">
+		   <table class="table" id="table">
+		   <thead class="the">
+			 <tr>
+		      <th>Name</th>
+			  <th>Writer/s</th>
+			  <th>Publication</th>
+			 </tr>
+		   </thead>
+			<tbody class="books" id="books">
+              <%if (bname.length!=0){%>
+			  <%for(var i=0;i<bname.length;i++){%>
+			   <tr id="data<%=i%>">
+	             <td id="bname"><%=bname[i]%></td>
+				 <td id="writer">
+				 <%for(var j=0;j<writer[i].split(',').length;j++){%>
+				    <%=writer[i].split(',')[j]%><br/>
+				 <%}%></td>
+				 <td id="publication"><%=publication[i]%></td>
+			   </tr>
+	          <%}}else{%>
+	            <tr><td colspan="3">No any books found!!!</td></tr>
+			  <%}%>
+		   </tbody>
+		   </table>
+		  </div>
+		 </div>
+		<div class="modal-footer" id="foot">
+		    <button type="button" class="btn btn-info" id="select" onclick="fbook()"><b>Done</b></button>
+		</div>
+     </div>
+   </div>
+ </div>
+ 
+ <div class="modal" id="modal-book-return" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+   <div class="modal-dialog">
+     <div class="modal-content text-center">
+        <div class="modal-header book-return-h">
+	      <h3 class="modal-title">The entered user already exists!!! Do you wish it to get updated???</h3>
+	    </div>
+		<div class="modal-footer book-return-f">
+		    <button type="button" class="btn btn-info btn-md" id="bybot" onclick="update()">OK</button>
+		    <button type="button" class="btn btn-danger btn-md" id="yourself" onclick="window.location.reload()" >Cancel</button>
+		</div>
+     </div>
+   </div>
+ </div>
+ 
+ <div class="modal fade" id="modal-nobook" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+   <div class="modal-dialog">
+     <div class="modal-content">
+        <div class="modal-header nobook-h">
+	      <h3 class="modal-title text-center" id="nobook-heading"></h3>
+	    </div>
+		<div class="modal-header nobook-f">
+		  <button type="button" class="btn btn-info" id="nobook-button" onclick="window.location.href='/'" >OK</button>
+	    </div>
+     </div>
+   </div>
+ </div>
+ 
+ <header id="heading">
+     <div class="container">
+	    <div class="row">
+	      <div class="col-sm-12 col-xs-12"><p id="name" class="text-center" onclick="javascript:window.location.reload(true)">
+		     Autonomous Smart Library
+		  </p></div>
+	    </div>
+	 </div>
+</header>
+ <main>
+   <div class="container">
+     <div class="row">
+	   <div class="col-sm-2 col-xs-2"></div>
+	   <div class="col-sm-8 col-xs-8">
+	     <div class="jumbotron well add_it">
+		   <h1 class="text-center head">Please Enter Following Credentials</h1>
+	       <form class="form form-horizontal" name="add_it_form" id="add_it_form" role="form">
+		        <fieldset class="form-group" id="bname_field">
+		          <label for="biname" id="biname_label">Book Name:</label>
+		            <input type="text" class="form-control" name="biname" id="biname" required placeholder="Please enter Book name"/>
+		        </fieldset>
+		        <fieldset class="form-group" id="wname_field">
+		          <label for="wname" id="wname_label">Writer/s:</label>
+		            <input type="text" class="form-control" name="wname" id="wname" required placeholder="Please enter comma separated Writer's name"/>
+		        </fieldset>
+				<fieldset class="form-group" id="pname_field">
+		          <label for="pname" id="pname_label">Publication:</label>
+		            <input type="text" class="form-control" name="pname" id="pname" required placeholder="Please enter Publication name"/>
+		        </fieldset>
+				<fieldset class="form-group" id="rtag_field">
+		          <label for="rtag" id="rtag_label">RFID Tag/s:</label>
+		            <input type="text" class="form-control" name="rtag" id="rtag" required placeholder="Please enter RFID tags for the book/s mentioned (use comma for multiple entries)"/>
+		        </fieldset>
+				<fieldset class="form-group" id="locname_field">
+		          <label for="locname" id="locname_label">Book Location</label><br/>
+					<input type="number" class="form-control" name="loc_shelf" id="loc_shelf"  required placeholder="Please enter Book shelf number"/>
+					<input type="number" class="form-control" name="loc_shelf_row" id="loc_shelf_row" required placeholder="Please enter Book shelf row number"/>
+		            <input type="number" class="form-control" name="loc_shelf_col" id="loc_shelf_col" required placeholder="Please enter Book shelf column number"/>
+				</fieldset>
+				<fieldset class="form-group" id="ntag_field">
+		          <label for="ntag" id="ntag_label">No. of available books:</label>
+		            <input type="number" class="form-control" name="ntag" id="ntag" required placeholder="Please enter Number of the books to be available"/>
+		        </fieldset>
+				<fieldset class="form-group" id="button_field">
+				   <button type="button" class="btn btn-danger btn-md" id="addbutton" onclick="addit()">Done</button>
+		           <h5 class="text-center" id="fiel" style="display:none; margin-top:10px">Either or all of the fields is empty!!!</h5>
+				 </fieldset>
+		   </form>
+	     </div>
+		 <div class="jumbotron well edit_it">
+		   <h1 class="text-center head">Please Edit Following credentials</h1>
+	       <form class="form form-horizontal" name="add_it_form" id="add_it_form" role="form">
+		        <fieldset class="form-group" id="beditname_field">
+		          <label for="beditname" id="beditname_label">Book Name:</label>
+		            <input type="text" class="form-control" name="beditname" id="beditname"/>
+		        </fieldset>
+		        <fieldset class="form-group" id="weditname_field">
+		          <label for="weditname" id="weditname_label">Writer/s:</label>
+		            <input type="text" class="form-control" name="weditname" id="weditname"/>
+		        </fieldset>
+				<fieldset class="form-group" id="peditname_field">
+		          <label for="peditname" id="peditname_label">Publication:</label>
+		            <input type="text" class="form-control" name="peditname" id="peditname"/>
+		        </fieldset>
+				<fieldset class="form-group" id="rtagedit_field">
+		          <label for="rtagedit" id="rtagedit_label">RFID Tag/s:</label>
+		            <input type="text" class="form-control" name="rtagedit" id="rtagedit"/>
+		        </fieldset>
+				<fieldset class="form-group" id="locnamedit_field">
+		          <label for="locnamedit" id="locnamedit_label">Book Location (Shelf No.,Row No. and Column No. respectively)</label><br/>
+					<input type="number" class="form-control" name="loc_shelfedit" id="loc_shelfedit"/>
+					<input type="number" class="form-control" name="loc_shelf_rowedit" id="loc_shelf_rowedit"/>
+		            <input type="number" class="form-control" name="loc_shelf_coledit" id="loc_shelf_coledit"/>
+				</fieldset>
+				<fieldset class="form-group" id="rtagedit_field">
+		          <label for="statedit" id="statedit_label">Status:</label>
+		            <input type="text" class="form-control" name="statedit" id="statedit"/>
+		        </fieldset>
+				<fieldset class="form-group" id="ntagedit_field">
+		          <label for="ntagedit" id="ntagedit_label">No. of available books (Total available number,Total number on shelf and Total number on desk respectively)</label>
+		            <input type="number" class="form-control" name="ntagedit" id="ntagedit"/>
+					<input type="number" class="form-control" name="nshelftagedit" id="nshelftagedit"/>
+					<input type="number" class="form-control" name="ndesktagedit" id="ndesktagedit"/>
+		        </fieldset>
+				<fieldset class="form-group" id="button_field">
+				   <button type="button" class="btn btn-danger btn-md" id="editbutton" onclick="editit()">Done</button>
+				 </fieldset>
+		   </form>
+	     </div>
+	   </div>
+	   <div class="col-sm-2 col-xs-2"></div>
+	 </div>
+   </div>
+ </main>
+ </body>
+ <footer>
+ </footer>
+  <script src="/static/bs/tether/dist/js/tether.min.js"></script>
+  <script src="/static/bs/js/bootstrap.min.js"></script>
+</html>

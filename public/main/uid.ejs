@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Get UID | Smart Library</title>
+   <meta charset="utf-8">
+   <meta name="description" content="Get UID Forum Of The Autonomous Smart Library">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+   <meta name="x-ua-compatible" content="ie=edge">
+   <link rel="shortcut icon" href="/static/img/icon.png"/>
+   <link rel="stylesheet" href="/static/bs/css/bootstrap.min.css"/>
+   <link rel="stylesheet" href="/static/style/uid-style.css"/>
+   <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css"/>
+   <script src="/static/link/jquery-3.2.1.js"></script>
+   <script src="/static/js/uid.js"></script>
+</head>
+<body>
+
+<div class="modal fade" id="modal-admin" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+   <div class="modal-dialog">
+     <div class="modal-content">
+        <div class="modal-header admin-h">
+	      <h3 class="modal-title" id="admin-heading">Login To UID Panel</h3>
+	    </div>
+		<div class="modal-body admin-b">
+	        <form class="form form-horizontal ad_login" name="ad_login" id="ad_login" role="form">
+		        <fieldset class="form-group text-center" id="adpass_field">
+				    <label for="adpass" id="adpass_label"><h3>Enter Admin Password:</h3></label>
+					<input type="password" id="adpass" name="adpass" class="text-center"/>
+				</fieldset>
+	    </div>
+		<div class="modal-footer admin-f">
+				  <button type="button" class="btn btn-warning btn-md" id="adlog" onclick="seepass()">Login</button>
+				</form>
+	    </div>
+     </div>
+   </div>
+ </div>
+
+ <div class="modal fade" id="modal-uid" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+   <div class="modal-dialog">
+     <div class="modal-content">
+        <div class="modal-header uid-h">
+	      <h3 class="modal-title" id="uid-heading">Enter username to get UID</h3>
+	    </div>
+		<div class="modal-body uid-b">
+	        <form class="form form-horizontal text-center" name="uid-form" id="uid-form" role="form">
+		        <fieldset class="form-group" id="username_field">
+					<input type="text" id="username" name="username" class="text-center"/>
+				</fieldset>
+				<button type="button" class="btn btn-warning btn-md" id="uidlog" onclick="getuid()">Done</button>
+				</form>
+	    </div>
+		<div class="modal-footer uid-f">
+				<p id="uidr" class="text-center" style="margin:auto;"></p>
+	    </div>
+     </div>
+   </div>
+ </div>
+
+
+<header id="heading">
+     <div class="container">
+	    <div class="row">
+	      <div class="col-sm-12 col-xs-12"><p id="name" class="text-center" onclick="javascript:window.location.reload(true)">
+		     Autonomous Smart Library
+		  </p></div>
+	    </div>
+	 </div>
+</header>
+<main>
+</main>
+<footer>
+</footer>
+<script src="/static/bs/tether/dist/js/tether.min.js"></script>
+<script src="/static/bs/js/bootstrap.min.js"></script>
+</body>
+</html>  
