@@ -11,7 +11,6 @@ This project is developed via node js along with frontend of HTML5, CSS3, Javasc
 
 As soon as any student enters the library, he connects to the raspberry pi hotspot via his android or laptop and logs in via his username and password. 
 
-<img src="https://github.com/BeepLoveKarki/smart-library/blob/master/screenshots/ss10.png" />
 
 Since the website contains various features, we discuss them below:
 
@@ -20,13 +19,11 @@ a) Book requests and responses
 &nbsp;&nbsp;&nbsp;The student uses this feature if any book he is searching for is not found in the library!!! He sends a request to the &nbsp;&nbsp;&nbsp;library admin (who uses the admin panel) for the book!!! As soon as the book arrives he receives the notification of &nbsp;&nbsp;&nbsp;arrival!!! The live hosting of this site, makes it easier for him to know book arrival via home!!!
 
 
-<img src="https://github.com/BeepLoveKarki/smart-library/blob/master/screenshots/ss1.png"/>
 
 b) Clear Fine amount
 
 &nbsp;&nbsp;&nbsp;The student may use this feature to clear the fine amount allocated to him vai electronic pay service!!!
 
-<img src="https://github.com/BeepLoveKarki/smart-library/blob/master/screenshots/ss2.png"/>
 
 c) Locate or Find Books
 
@@ -41,22 +38,18 @@ e) Return or Renew Books
 &nbsp;&nbsp;&nbsp;For returning or renewing the book the students has taken, he just brings it, clicks this button, chooses the one to &nbsp;&nbsp;&nbsp;return among his issued books list and shows the book to the rfid reader!!! The book is then automatically returned!!!
 &nbsp;&nbsp;&nbsp;He then puts the book over the returning desk!!!
 
-<img src="https://github.com/BeepLoveKarki/smart-library/blob/master/screenshots/ss3.png"/>
 
 All these transactions can be checked via the Transactions anchor placed on page top!!!
 
-<img src="https://github.com/BeepLoveKarki/smart-library/blob/master/screenshots/ss5.png"/>
 
 f) Send Feedback
 
 &nbsp;&nbsp;&nbsp;The student may send any kind of feedback to the library admin via this button!!!
 
-<img src="https://github.com/BeepLoveKarki/smart-library/blob/master/screenshots/ss4.png"/>
 
 
 It also contains an admin panel where library admin logs in with a password provided to him!!!
 
-<img src="https://github.com/BeepLoveKarki/smart-library/blob/master/screenshots/ss6.png" height="700px" width="400px"/>
 
 The features of admin panel are:
 
@@ -68,7 +61,6 @@ b) Change Admin Password
 
 &nbsp;&nbsp;&nbsp;This allows changing of admin password!!!
 
-<img src="https://github.com/BeepLoveKarki/smart-library/blob/master/screenshots/ss7.png"/>
 
 c) Manage Students Entry
 
@@ -86,8 +78,21 @@ f)View Feedbacks
 
 &nbsp;&nbsp;&nbsp;This allows admin to view students' feedbacks!!!
 
-<img src="https://github.com/BeepLoveKarki/smart-library/blob/master/screenshots/ss8.png"/>
 
 This project aims to automate all library processes with the lowest number of employees (1 or 2) and small cost!!! This project was nominated as the <b>"Thematic Software Winner"</b> in National Level Engineering Exhibition called LOCUS exhibition held in Pulchowk engineering campus, Nepal and certified via Multinational IT Company <b>Logpoint</b>
 
 <img src="https://github.com/BeepLoveKarki/smart-library/blob/master/winner.jpg"/>
+
+
+Some website glimpses are:
+
+<img src="https://github.com/BeepLoveKarki/smart-library/blob/master/screenshots/ss10.png" />
+<img src="https://github.com/BeepLoveKarki/smart-library/blob/master/screenshots/ss1.png" />
+<img src="https://github.com/BeepLoveKarki/smart-library/blob/master/screenshots/ss2.png" />
+<img src="https://github.com/BeepLoveKarki/smart-library/blob/master/screenshots/ss3.png" />
+<img src="https://github.com/BeepLoveKarki/smart-library/blob/master/screenshots/ss4.png" />
+<img src="https://github.com/BeepLoveKarki/smart-library/blob/master/screenshots/ss5.png" />
+<img src="https://github.com/BeepLoveKarki/smart-library/blob/master/screenshots/ss6.png" />
+<img src="https://github.com/BeepLoveKarki/smart-library/blob/master/screenshots/ss7.png" />
+<img src="https://github.com/BeepLoveKarki/smart-library/blob/master/screenshots/ss8.png" />
+
