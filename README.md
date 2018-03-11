@@ -86,9 +86,9 @@ This project aims to automate all library processes with the lowest number of em
 
 Some website glimpses are:
 
-<img src="https://github.com/BeepLoveKarki/smart-library/blob/master/screenshots/ss10.png" height="1000px" width="500px"/>
-<img src="https://github.com/BeepLoveKarki/smart-library/blob/master/screenshots/ss1.png" height="1000px" width="500px"/>
-<img src="https://github.com/BeepLoveKarki/smart-library/blob/master/screenshots/ss2.png" height="1000px" width="500px"/>
-<img src="https://github.com/BeepLoveKarki/smart-library/blob/master/screenshots/ss3.png" height="1000px" width="500px"/>
-<img src="https://github.com/BeepLoveKarki/smart-library/blob/master/screenshots/ss8.png" height="1000px" width="500px"/>
+<img src="https://github.com/BeepLoveKarki/smart-library/blob/master/screenshots/ss10.png" height="1000px" width="500px"/><br/><br/>
+<img src="https://github.com/BeepLoveKarki/smart-library/blob/master/screenshots/ss1.png" height="1000px" width="500px"/><br/><br/>
+<img src="https://github.com/BeepLoveKarki/smart-library/blob/master/screenshots/ss2.png" height="1000px" width="500px"/><br/><br/>
+<img src="https://github.com/BeepLoveKarki/smart-library/blob/master/screenshots/ss3.png" height="1000px" width="500px"/><br/><br/>
+<img src="https://github.com/BeepLoveKarki/smart-library/blob/master/screenshots/ss8.png" height="1000px" width="500px"/><br/><br/>
 
