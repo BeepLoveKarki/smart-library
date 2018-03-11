@@ -78,6 +78,6 @@ This allows admin to view the books requests provided by the students!!! As soon
 This allows admin to view students' feedbacks!!!
 
 
-This project aims to automate all library processes with the lowest number of employees (1 or 2) and small cost!!! This project was nominated as the <b>"Thematic Software Winner"</b> in National Level Engineering Exhibition called LOCUS exhibition held in Pulchowk engineering campus, Nepal and certified via Multinational IT Company <b>Logpoint</b>
+This project aims to automate all library processes with the lowest number of employees (1 or 2) and small cost!!! This project was nominated as the <b>"Thematic Software Winner"</b> in National Level Engineering Exhibition called LOCUS exhibition themed <b>Smart City</b> held in Pulchowk engineering campus, Nepal and certified via Multinational IT Company <b>Logpoint</b>
 
 <img src="https://github.com/BeepLoveKarki/smart-library/blob/master/winner.jpg"/>
