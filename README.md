@@ -77,6 +77,7 @@ This allows admin to view the books requests provided by the students!!! As soon
 
 This allows admin to view students' feedbacks!!!
 
+An arduino controlled RFID reader shield was also created to make easy tracking of misplaced book!!!
 
 This project aims to automate all library processes with the lowest number of employees (1 or 2) and small cost!!! It required the use of pi-rc522 python module to operate RFID reader via raspberry pi!!! This project was nominated as the <b>"Thematic Software Winner"</b> in National Level Engineering Exhibition called LOCUS exhibition 2018 themed <b>Smart City</b> held in Pulchowk engineering campus, Nepal and certified via Multinational IT Company <b>Logpoint</b>
 
