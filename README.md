@@ -31,7 +31,7 @@ The student may use this feature to view the location of the book he is searchin
 
 <b>d) Issue Books</b>
 
-The student clicks this button and chooses the book he requires. Then after getting the book on his hand, he just shows the book to the rfid reader placed over the table!!! The book is then automatically issued for him!!!
+The student clicks this button and chooses the book he requires. Then after getting the book (inside which RFID tag is placed) on his hand, he just shows the book to the rfid reader placed over the table!!! The book is then automatically issued for him!!!
 
 <b>e) Return or Renew Books</b>
 
@@ -78,6 +78,8 @@ This allows admin to view the books requests provided by the students!!! As soon
 This allows admin to view students' feedbacks!!!
 
 
-This project aims to automate all library processes with the lowest number of employees (1 or 2) and small cost!!! This project was nominated as the <b>"Thematic Software Winner"</b> in National Level Engineering Exhibition called LOCUS exhibition 2018 themed <b>Smart City</b> held in Pulchowk engineering campus, Nepal and certified via Multinational IT Company <b>Logpoint</b>
+This project aims to automate all library processes with the lowest number of employees (1 or 2) and small cost!!! It required the use of pi-rc522 python module to operate RFID reader via raspberry pi!!! This project was nominated as the <b>"Thematic Software Winner"</b> in National Level Engineering Exhibition called LOCUS exhibition 2018 themed <b>Smart City</b> held in Pulchowk engineering campus, Nepal and certified via Multinational IT Company <b>Logpoint</b>
 
 <img src="https://github.com/BeepLoveKarki/smart-library/blob/master/winner.jpg"/>
+
+Some screenshots of the project can be found here: https://github.com/BeepLoveKarki/smart-library
