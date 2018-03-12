@@ -82,4 +82,4 @@ This project aims to automate all library processes with the lowest number of em
 
 <img src="https://github.com/BeepLoveKarki/smart-library/blob/master/winner.jpg"/>
 
-Some screenshots of the project can be found here: https://github.com/BeepLoveKarki/smart-library
+Some screenshots of the project can be found here: https://github.com/BeepLoveKarki/smart-library/tree/master/screenshots
